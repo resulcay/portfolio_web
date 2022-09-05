@@ -26,7 +26,6 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        key: const Key("Values"),
         child: Image.asset("assets/images/desktop.png"),
       ),
     );
