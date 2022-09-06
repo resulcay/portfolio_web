@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_web/constants.dart';
 
 import 'components/logo_and_blur.dart';
+import 'components/menu.dart';
 import 'components/person_picture.dart';
 
 class TopSection extends StatelessWidget {
@@ -23,6 +24,7 @@ class TopSection extends StatelessWidget {
         ),
       ),
       child: Container(
+        alignment: Alignment.center,
         padding: const EdgeInsets.only(top: kDefaultPadding),
         width: 1200,
         child: Stack(
@@ -34,20 +36,12 @@ class TopSection extends StatelessWidget {
               child: PersonPicture(),
             ),
             Positioned(
+              bottom: 0,
               child: Menu(),
             )
           ],
         ),
       ),
     );
-  }
-}
-
-class Menu extends StatelessWidget {
-  const Menu({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }
