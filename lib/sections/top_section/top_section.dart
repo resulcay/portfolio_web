@@ -32,10 +32,22 @@ class TopSection extends StatelessWidget {
               bottom: 0,
               right: 0,
               child: PersonPicture(),
+            ),
+            Positioned(
+              child: Menu(),
             )
           ],
         ),
       ),
     );
+  }
+}
+
+class Menu extends StatelessWidget {
+  const Menu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
