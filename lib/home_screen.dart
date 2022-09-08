@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/constants.dart';
 import 'package:portfolio_web/sections/about/about_section.dart';
+import 'package:portfolio_web/sections/recent_work/recent_work_section.dart';
 import 'package:portfolio_web/sections/service/service_section.dart';
 import 'package:portfolio_web/sections/top_section/top_section.dart';
 
@@ -18,6 +19,7 @@ class HomeScreen extends StatelessWidget {
             SizedBox(height: kDefaultPadding * 2),
             AboutSection(),
             ServiceSection(),
+            RecentWorkSection(),
             SizedBox(height: 500),
           ],
         ),
