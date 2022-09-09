@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_web/constants.dart';
 import 'package:portfolio_web/home_screen.dart';
 
 void main() {
@@ -11,9 +12,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "",
+      title: "Resul's Portfolio Website",
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        inputDecorationTheme: kDefaultInputDecorationTheme,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const HomeScreen(),
     );

@@ -24,6 +24,7 @@ const kDefaultInputDecorationTheme = InputDecorationTheme(
 );
 
 const kDefaultOutlineInputBorder = OutlineInputBorder(
+//  borderRadius: BorderRadius.circular(50),
   borderSide: BorderSide(
     color: Color(0xFFCEE4FD),
   ),

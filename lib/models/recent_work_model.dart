@@ -23,20 +23,20 @@ List<RecentWork> recentWorks = [
   ),
   RecentWork(
     id: 2,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
+    title: "The latest website that I published",
+    category: "Web Design",
     image: "assets/images/work_2.png",
   ),
   RecentWork(
     id: 3,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
+    title: "Beginner level UIs which I designed",
+    category: "UI Design",
     image: "assets/images/work_3.png",
   ),
   RecentWork(
     id: 4,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
+    title: "Some kind of Games I've made",
+    category: "Interaction Design",
     image: "assets/images/work_4.png",
   ),
 ];

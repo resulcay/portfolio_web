@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/components/section_title.dart';
 import 'package:portfolio_web/constants.dart';
+import 'package:portfolio_web/models/recent_work_model.dart';
 
 import '../../components/hire_me.dart';
+import 'components/recent_work_card.dart';
 
 class RecentWorkSection extends StatefulWidget {
   const RecentWorkSection({super.key});
@@ -22,7 +24,7 @@ class _RecentWorkSectionState extends State<RecentWorkSection>
     controller =
         AnimationController(duration: const Duration(seconds: 3), vsync: this)
           ..addListener(() => setState(() {}));
-    animation = Tween(begin: 0.0, end: -80.0).animate(controller);
+    animation = Tween(begin: 80.0, end: -80.0).animate(controller);
     controller.forward();
   }
 
@@ -30,7 +32,6 @@ class _RecentWorkSectionState extends State<RecentWorkSection>
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: kDefaultPadding * 6),
-      height: 600,
       width: double.infinity,
       decoration: const BoxDecoration(
         color: Color(0xFFF7E8FF),
@@ -50,7 +51,22 @@ class _RecentWorkSectionState extends State<RecentWorkSection>
             subTitle: "Recent Works",
             color: Color(0xFFFFB100),
           ),
-          Container(),
+          const SizedBox(height: kDefaultPadding * 1.5),
+          SizedBox(
+            width: 1110,
+            child: Wrap(
+              spacing: kDefaultPadding,
+              runSpacing: kDefaultPadding,
+              children: List.generate(
+                recentWorks.length,
+                (index) => RecentWorkCard(
+                  index: index,
+                  function: () {},
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(height: kDefaultPadding * 5)
         ],
       ),
     );
