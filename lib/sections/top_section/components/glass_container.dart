@@ -32,14 +32,14 @@ class GlassContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Hello Dear,",
+                "Hello Dear User,",
                 style: Theme.of(context)
                     .textTheme
                     .headline5!
                     .copyWith(color: Colors.white),
               ),
               const Text(
-                "Robbie \nRutherford",
+                "Resul \nÇay",
                 style: TextStyle(
                   fontSize: 100,
                   fontWeight: FontWeight.bold,
