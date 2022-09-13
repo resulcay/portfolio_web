@@ -58,13 +58,13 @@ class ContactBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SocialCard(
-                userName: "resulcay",
+                userName: "resulcayop@outloook.com",
                 iconPath: "assets/images/skype.png",
                 color: const Color(0xFFD9FFFC),
                 function: () {},
               ),
               SocialCard(
-                userName: "resulcay",
+                userName: "+90 542 220 71 70",
                 iconPath: "assets/images/whatsapp.png",
                 color: const Color(0xFFE4FFC7),
                 function: () {},
