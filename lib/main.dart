@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Resul's Portfolio Website",
       theme: ThemeData(
-        inputDecorationTheme: kDefaultInputDecorationTheme,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+          inputDecorationTheme: kDefaultInputDecorationTheme,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: "Montserrat"),
       home: const HomeScreen(),
     );
   }

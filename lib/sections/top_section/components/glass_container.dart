@@ -1,6 +1,8 @@
 import 'dart:ui';
 
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:neon/neon.dart';
 import 'package:portfolio_web/extensions/context_extension.dart';
 
 import '../../../constants.dart';
@@ -23,37 +25,59 @@ class GlassContainer extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding * 2),
           constraints: BoxConstraints(
             maxWidth: 1110,
-            maxHeight: context.height * 0.7,
+            maxHeight: context.height * 0.8,
           ),
           width: double.infinity,
           color: Colors.white.withOpacity(0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: kDefaultPadding * 3),
               Text(
-                "Hello Dear User,",
+                "Hello Dear Guest, I am",
                 style: Theme.of(context)
                     .textTheme
                     .headline5!
                     .copyWith(color: Colors.white),
               ),
-              const Text(
-                "Resul \nÇay",
-                style: TextStyle(
-                  fontSize: 100,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                  height: 1.5,
-                ),
+              const SizedBox(height: kDefaultPadding * 3),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Neon(
+                    text: 'Resul Çay',
+                    color: Colors.lightBlue,
+                    font: NeonFont.Cyberpunk,
+                    flickeringText: true,
+                    flickeringLetters: const [0, 1, 7, 8],
+                    glowing: true,
+                    glowingDuration: const Duration(seconds: 2),
+                    textStyle: TextStyle(
+                        fontFamily: "normal",
+                        fontSize: 150,
+                        color: Colors.white),
+                  ),
+                ],
               ),
-              Text(
-                "Creative Design Director",
-                style: Theme.of(context)
-                    .textTheme
-                    .headline5!
-                    .copyWith(color: Colors.white),
-              ),
+              const SizedBox(height: kDefaultPadding * 3),
+              TextLiquidFill(
+                text: 'Software \nDeveloper',
+                waveColor: Colors.blueAccent,
+                boxBackgroundColor: Colors.white,
+                textStyle: TextStyle(
+                    fontSize: 70,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Montserrat",
+                    color: Colors.green),
+              )
+              // Text(
+              //   "Software Developer",
+              //   style: Theme.of(context)
+              //       .textTheme
+              //       .headline5!
+              //       .copyWith(color: Colors.white),
+              // ),
             ],
           ),
         ),
