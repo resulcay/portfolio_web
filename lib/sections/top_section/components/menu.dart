@@ -18,7 +18,7 @@ class _MenuState extends State<Menu> {
     "Services",
     "Portfolio",
     "Testimonial",
-    "Contact"
+    "Contacts"
   ];
   @override
   Widget build(BuildContext context) {
