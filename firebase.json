@@ -1,6 +1,7 @@
 {
   "hosting": {
     "public": "build/web",
+    "site": "resulcay",
     "ignore": [
       "firebase.json",
       "**/.*",
