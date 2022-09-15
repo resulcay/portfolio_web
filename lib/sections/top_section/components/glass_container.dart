@@ -54,30 +54,32 @@ class GlassContainer extends StatelessWidget {
                     glowing: true,
                     glowingDuration: const Duration(seconds: 2),
                     textStyle: const TextStyle(
-                        fontFamily: "normal",
+                        fontFamily: "Montserrat",
                         fontSize: 150,
                         color: Colors.white),
                   ),
                 ],
               ),
               const SizedBox(height: kDefaultPadding * 3),
-              TextLiquidFill(
-                text: 'Software \nDeveloper',
-                waveColor: Colors.blueAccent,
-                boxBackgroundColor: Colors.white,
-                textStyle: const TextStyle(
-                    fontSize: 70,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "Montserrat",
-                    color: Colors.green),
+              Container(
+                height: 300,
+                width: 500,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                child: TextLiquidFill(
+                  text: 'Software \nDeveloper',
+                  waveColor: Colors.blueAccent,
+                  boxBackgroundColor: Colors.white24,
+                  boxHeight: 300,
+                  boxWidth: 500,
+                  textStyle: const TextStyle(
+                      fontSize: 70,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Montserrat",
+                      color: Colors.green),
+                ),
               )
-              // Text(
-              //   "Software Developer",
-              //   style: Theme.of(context)
-              //       .textTheme
-              //       .headline5!
-              //       .copyWith(color: Colors.white),
-              // ),
             ],
           ),
         ),

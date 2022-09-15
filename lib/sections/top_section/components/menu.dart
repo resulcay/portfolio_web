@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_web/home_screen.dart';
 
 import '../../../constants.dart';
 
@@ -49,6 +50,7 @@ class _MenuState extends State<Menu> {
         setState(() {
           selectedIndex = index;
         });
+        scrollToIndex(selectedIndex, scrollController, 700);
       },
       onHover: (value) {
         setState(() {
