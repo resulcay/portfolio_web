@@ -53,7 +53,7 @@ class GlassContainer extends StatelessWidget {
                     flickeringLetters: const [0, 1, 7, 8],
                     glowing: true,
                     glowingDuration: const Duration(seconds: 2),
-                    textStyle: TextStyle(
+                    textStyle: const TextStyle(
                         fontFamily: "normal",
                         fontSize: 150,
                         color: Colors.white),
@@ -65,7 +65,7 @@ class GlassContainer extends StatelessWidget {
                 text: 'Software \nDeveloper',
                 waveColor: Colors.blueAccent,
                 boxBackgroundColor: Colors.white,
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                     fontSize: 70,
                     fontWeight: FontWeight.bold,
                     fontFamily: "Montserrat",
