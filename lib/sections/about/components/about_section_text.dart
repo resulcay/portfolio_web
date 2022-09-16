@@ -12,14 +12,16 @@ class AboutSectionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-      child: Text(
-        text,
-        style: const TextStyle(
-          fontWeight: FontWeight.w200,
-          color: kTextColor,
-          height: 2,
+    return Center(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+        child: Text(
+          text,
+          style: const TextStyle(
+            fontWeight: FontWeight.w200,
+            color: kTextColor,
+            height: 1.5,
+          ),
         ),
       ),
     );

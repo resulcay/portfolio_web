@@ -13,7 +13,7 @@ class AboutText extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "About \nmy Story",
+          "About \nMy Story",
           style: Theme.of(context)
               .textTheme
               .headline2!

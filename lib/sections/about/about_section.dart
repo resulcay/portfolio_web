@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:portfolio_web/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../components/custom_outlined_button.dart';
 import 'components/about_section_text.dart';
@@ -15,7 +16,7 @@ class AboutSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: const BoxConstraints(maxWidth: 1110),
-      padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
+      padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 4),
       child: Column(
         children: [
           Row(
@@ -25,7 +26,7 @@ class AboutSection extends StatelessWidget {
               Expanded(
                 child: AboutSectionText(
                     text:
-                        "   Here some stories about me Here some stories about me Here some stories about me Here some stories about me Here some stories about me Here some stories about me Here some stories about me Here some stories about me Here some stories about"),
+                        "   Hi, I am Resul. I was born  5th of march, 1998 in city of Turkey which is Şanlıurfa. I completed my high school degree where in Science High School at same city. Then, I studied English Language for one year in Preparation School of Foreign Languages. I continue to my education in Yalova University as a 4th year Computer Engineering student."),
               ),
               ExperienceCard(
                 experienceInYears: "01",
@@ -33,7 +34,7 @@ class AboutSection extends StatelessWidget {
               Expanded(
                 child: AboutSectionText(
                     text:
-                        "   Here some stories about me Here some stories about me Here some stories about me Here some stories about me Here some stories about me Here some stories about me Here some stories about me Here some stories about me Here some stories about"),
+                        "   My hobbies are reading, walking, going to the movies and playing video games (fan of GTA). Besides my hobbies, I do frontend and backend developments in software. I also develop beginner level games with Unity."),
               )
             ],
           ),
@@ -42,7 +43,10 @@ class AboutSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomOutlinedButton(
-                function: () {},
+                function: () {
+                  _launchUrl(
+                      'https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/');
+                },
                 imagePath: "assets/images/hand.png",
                 buttonText: "Hire Me",
               ),
@@ -50,7 +54,10 @@ class AboutSection extends StatelessWidget {
                 width: kDefaultPadding * 1.5,
               ),
               CustomOutlinedButton(
-                function: () {},
+                function: () {
+                  _launchUrl(
+                      'https://drive.google.com/file/d/1bc7O-QLR8Ue3gw692QXBDMFW5l8NxMzP/view?usp=sharing');
+                },
                 imagePath: "assets/images/download.png",
                 buttonText: "Download CV",
               ),
@@ -59,5 +66,13 @@ class AboutSection extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+Future<void> _launchUrl(String url) async {
+  final Uri uri = Uri.parse(url);
+
+  if (!await launchUrl(uri)) {
+    throw 'Could not launch $uri';
   }
 }

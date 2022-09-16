@@ -47,7 +47,7 @@ class GlassContainer extends StatelessWidget {
                 children: [
                   Neon(
                     text: 'Resul Çay',
-                    color: Colors.lightBlue,
+                    color: Colors.purple,
                     font: NeonFont.Cyberpunk,
                     flickeringText: true,
                     flickeringLetters: const [0, 1, 7, 8],
@@ -55,15 +55,15 @@ class GlassContainer extends StatelessWidget {
                     glowingDuration: const Duration(seconds: 2),
                     textStyle: const TextStyle(
                         fontFamily: "Montserrat",
-                        fontSize: 150,
+                        fontSize: 120,
                         color: Colors.white),
                   ),
                 ],
               ),
               const SizedBox(height: kDefaultPadding * 3),
               Container(
-                height: 300,
-                width: 500,
+                height: 250,
+                width: 450,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
                 ),
@@ -77,7 +77,7 @@ class GlassContainer extends StatelessWidget {
                       fontSize: 70,
                       fontWeight: FontWeight.bold,
                       fontFamily: "Montserrat",
-                      color: Colors.green),
+                      color: Colors.blue),
                 ),
               )
             ],
