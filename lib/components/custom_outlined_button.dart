@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_web/models/contact_form_model.dart';
+import 'package:provider/provider.dart';
 
 import '../constants.dart';
 
@@ -16,6 +18,7 @@ class CustomOutlinedButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool localIsLoading = Provider.of<ContactFormModel>(context).isLoading;
     return FittedBox(
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
@@ -30,12 +33,14 @@ class CustomOutlinedButton extends StatelessWidget {
         onPressed: function,
         child: Row(
           children: [
-            Image.asset(
-              imagePath,
-              height: 40,
-            ),
+            localIsLoading == false
+                ? Image.asset(
+                    imagePath,
+                    height: 40,
+                  )
+                : const CircularProgressIndicator(),
             const SizedBox(width: kDefaultPadding),
-            Text(buttonText)
+            Text(localIsLoading == false ? buttonText : "Sending")
           ],
         ),
       ),

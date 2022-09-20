@@ -20,26 +20,25 @@ class FeedBack {
 List<FeedBack> feedBacks = [
   FeedBack(
     id: 1,
-    name: "Ronald Thomson",
+    name: "Hayri Can Efe",
     review:
-        "Such a nice website! Have you ever paid attention to the addresses that flash and flicker in the address bar at the top of the page on your computer screen? Not all URLs are legitimate.",
-    userPic: "assets/images/people.png",
+        "A skillful developer. He provides convenience to users with his unique development ways. He is a professional person who does his job with love.",
+    userPic: "assets/images/ref1.jpg",
     color: const Color(0xFFFFF3DD),
   ),
   FeedBack(
     id: 2,
-    name: "Walter White",
-    review:
-        "Say my name!  Have you ever paid attention to the addresses that flash and flicker in the address bar at the top of the page on your computer screen? Not all URLs are legitimate.",
-    userPic: "assets/images/people.png",
+    name: "Sefa Zor",
+    review: "",
+    userPic: "assets/images/ref2.jpg",
     color: const Color(0xFFD9FFFC),
   ),
   FeedBack(
     id: 3,
-    name: "Heisenberg Walker",
+    name: "İsmail Aslan",
     review:
-        "You da*n right.  Have you ever paid attention to the addresses that flash and flicker in the address bar at the top of the page on your computer screen? Not all URLs are legitimate.",
-    userPic: "assets/images/people.png",
+        "He is a person who can easily adapt to teamwork and various projects. Thanks to his passion for his job, he is able to showcase his talents quite well. A good person, a talented developer.",
+    userPic: "assets/images/ref3.jpg",
     color: const Color(0xFFFFE0E0),
   ),
 ];

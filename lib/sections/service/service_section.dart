@@ -3,6 +3,7 @@ import 'package:portfolio_web/constants.dart';
 import 'package:portfolio_web/models/service_model.dart';
 
 import '../../components/section_title.dart';
+import '../../home_screen.dart';
 import 'components/service_card.dart';
 
 class ServiceSection extends StatelessWidget {
@@ -26,7 +27,9 @@ class ServiceSection extends StatelessWidget {
               services.length,
               (index) => ServiceCard(
                 index: index,
-                function: () {},
+                function: () {
+                  scrollToIndex(3, scrollController, 1310);
+                },
               ),
             ),
           )

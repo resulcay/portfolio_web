@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:mailto/mailto.dart';
 import 'package:portfolio_web/components/section_title.dart';
 import 'package:portfolio_web/constants.dart';
+import 'package:portfolio_web/models/contact_form_model.dart';
+import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../components/custom_outlined_button.dart';
 import 'components/social_card.dart';
+
+TextEditingController clientNameTextController = TextEditingController();
+TextEditingController clientMailTextController = TextEditingController();
+TextEditingController clientDescriptionTextController = TextEditingController();
+TextEditingController projectTypeTextController = TextEditingController();
+TextEditingController projectBudgetTextController = TextEditingController();
 
 class ContactSection extends StatelessWidget {
   const ContactSection({super.key});
@@ -58,22 +68,30 @@ class ContactBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               SocialCard(
-                userName: "resulcayop@outlook.com",
-                iconPath: "assets/images/skype.png",
-                color: const Color(0xFFD9FFFC),
-                function: () {},
-              ),
-              SocialCard(
                 userName: "+90 542 220 71 70",
                 iconPath: "assets/images/whatsapp.png",
-                color: const Color(0xFFE4FFC7),
-                function: () {},
+                color: const Color(0xFFD9FFFC),
+                function: () {
+                  _launchUrl(
+                      "https://wa.me/905422207170/?text=Hi%2C%20Resul.%20I%20am%20interested%20in%20one%20of%20your%20services.");
+                },
               ),
               SocialCard(
-                userName: "resulcay",
-                iconPath: "assets/images/messenger.png",
+                userName: "resulcayop@gmail.com",
+                iconPath: "assets/images/gmail.png",
+                color: const Color(0xFFE4FFC7),
+                function: () {
+                  launchMailto();
+                },
+              ),
+              SocialCard(
+                userName: "       Resul Çay       ",
+                iconPath: "assets/images/linkedin.png",
                 color: const Color(0xFFE8F0F9),
-                function: () {},
+                function: () {
+                  _launchUrl(
+                      "https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/");
+                },
               ),
             ],
           ),
@@ -100,6 +118,7 @@ class ContactForm extends StatelessWidget {
           SizedBox(
             width: 470,
             child: TextField(
+              controller: clientNameTextController,
               onChanged: (value) {},
               decoration: const InputDecoration(
                 labelText: "Your Name",
@@ -110,6 +129,7 @@ class ContactForm extends StatelessWidget {
           SizedBox(
             width: 470,
             child: TextField(
+              controller: clientMailTextController,
               onChanged: (value) {},
               decoration: const InputDecoration(
                 labelText: "Your Email",
@@ -120,6 +140,7 @@ class ContactForm extends StatelessWidget {
           SizedBox(
             width: 470,
             child: TextField(
+              controller: projectTypeTextController,
               onChanged: (value) {},
               decoration: const InputDecoration(
                 labelText: "Project Type",
@@ -130,6 +151,7 @@ class ContactForm extends StatelessWidget {
           SizedBox(
             width: 470,
             child: TextField(
+              controller: projectBudgetTextController,
               onChanged: (value) {},
               decoration: const InputDecoration(
                 labelText: "Project Budget",
@@ -138,6 +160,7 @@ class ContactForm extends StatelessWidget {
             ),
           ),
           TextField(
+            controller: clientDescriptionTextController,
             maxLines: 7,
             onChanged: (value) {},
             decoration: const InputDecoration(
@@ -149,7 +172,21 @@ class ContactForm extends StatelessWidget {
           Center(
             child: FittedBox(
               child: CustomOutlinedButton(
-                function: () {},
+                function: () {
+                  context.read<ContactFormModel>().sendMail(
+                        clientDescriptionTextController.text,
+                        clientMailTextController.text,
+                        clientNameTextController.text,
+                        projectBudgetTextController.text,
+                        projectTypeTextController.text,
+                      );
+
+                  clientDescriptionTextController.text = "";
+                  clientMailTextController.text = "";
+                  clientNameTextController.text = "";
+                  projectBudgetTextController.text = "";
+                  projectTypeTextController.text = "";
+                },
                 imagePath: "assets/images/contact_icon.png",
                 buttonText: "Contact Me",
               ),
@@ -159,4 +196,22 @@ class ContactForm extends StatelessWidget {
       ),
     );
   }
+}
+
+Future<void> _launchUrl(String url) async {
+  final Uri uri = Uri.parse(url);
+
+  if (!await launchUrl(uri)) {
+    throw 'Could not launch $uri';
+  }
+}
+
+launchMailto() async {
+  final mailtoLink = Mailto(
+    to: ['resulcayop@gmail.com'],
+    subject: 'Development Service Request',
+    body: 'Hi Resul, I am interested in one of your services.',
+  );
+
+  await _launchUrl('$mailtoLink');
 }

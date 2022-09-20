@@ -23,12 +23,12 @@ class GlassContainer extends StatelessWidget {
         ),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding * 2),
+          color: Colors.white.withOpacity(0),
           constraints: BoxConstraints(
             maxWidth: 1110,
             maxHeight: context.height * 0.8,
           ),
           width: double.infinity,
-          color: Colors.white.withOpacity(0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_web/components/section_title.dart';
 import 'package:portfolio_web/constants.dart';
 import 'package:portfolio_web/models/recent_work_model.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../components/hire_me.dart';
 import 'components/recent_work_card.dart';
@@ -61,7 +62,26 @@ class _RecentWorkSectionState extends State<RecentWorkSection>
                 recentWorks.length,
                 (index) => RecentWorkCard(
                   index: index,
-                  function: () {},
+                  function: () {
+                    switch (index) {
+                      case 0:
+                        _launchUrl(
+                            "https://github.com/resulcay/baby_name_generator");
+                        break;
+                      case 1:
+                        _launchUrl(
+                            "https://github.com/resulcay/test_pro_mobile_app");
+                        break;
+                      case 2:
+                        _launchUrl("https://github.com/resulcay/plant_app");
+                        break;
+                      case 3:
+                        _launchUrl(
+                            "https://github.com/resulcay/animated_tesla_car_control_app");
+                        break;
+                      default:
+                    }
+                  },
                 ),
               ),
             ),
@@ -70,6 +90,14 @@ class _RecentWorkSectionState extends State<RecentWorkSection>
         ],
       ),
     );
+  }
+
+  Future<void> _launchUrl(String url) async {
+    final Uri uri = Uri.parse(url);
+
+    if (!await launchUrl(uri)) {
+      throw 'Could not launch $uri';
+    }
   }
 
   @override

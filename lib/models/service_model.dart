@@ -18,25 +18,25 @@ class Service {
 List<Service> services = [
   Service(
     id: 1,
-    title: "Graphic Design",
+    title: "       Mobile \nDevelopment",
     image: "assets/images/graphic.png",
     color: const Color(0xFFD9FFFC),
   ),
   Service(
     id: 2,
-    title: "Web Design",
+    title: "    Backend \nDevelopment",
     image: "assets/images/desktop.png",
     color: const Color(0xFFE4FFC7),
   ),
   Service(
     id: 3,
-    title: "UI Design",
+    title: "        Game \nDevelopment",
     image: "assets/images/ui.png",
     color: const Color(0xFFFFF3DD),
   ),
   Service(
     id: 4,
-    title: "Interaction Design",
+    title: "    General \nDevelopment",
     image: "assets/images/Interaction_design.png",
     color: const Color(0xFFFFE0E0),
   ),

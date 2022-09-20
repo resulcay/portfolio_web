@@ -50,7 +50,27 @@ class _MenuState extends State<Menu> {
         setState(() {
           selectedIndex = index;
         });
-        scrollToIndex(selectedIndex, scrollController, 700);
+        switch (selectedIndex) {
+          case 0:
+            scrollToIndex(selectedIndex, scrollController, 0);
+            break;
+          case 1:
+            scrollToIndex(selectedIndex, scrollController, 550);
+            break;
+          case 2:
+            scrollToIndex(selectedIndex, scrollController, 630);
+            break;
+          case 3:
+            scrollToIndex(selectedIndex, scrollController, 750);
+            break;
+          case 4:
+            scrollToIndex(selectedIndex, scrollController, 750);
+            break;
+          case 5:
+            scrollToIndex(selectedIndex, scrollController, 778);
+            break;
+          default:
+        }
       },
       onHover: (value) {
         setState(() {

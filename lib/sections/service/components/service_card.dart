@@ -74,6 +74,7 @@ class _ServiceCardState extends State<ServiceCard> {
               services[widget.index].title,
               style: const TextStyle(
                 fontSize: 22,
+                fontWeight: FontWeight.w400,
               ),
             )
           ],

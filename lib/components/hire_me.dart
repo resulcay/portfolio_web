@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../constants.dart';
 import 'custom_outlined_button.dart';
@@ -43,12 +44,22 @@ class HireMeCard extends StatelessWidget {
             ],
           )),
           CustomOutlinedButton(
-            function: () {},
+            function: () {
+              _launchUrl('https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/');
+            },
             imagePath: "assets/images/hand.png",
             buttonText: "Hire Me",
           )
         ],
       ),
     );
+  }
+}
+
+Future<void> _launchUrl(String url) async {
+  final Uri uri = Uri.parse(url);
+
+  if (!await launchUrl(uri)) {
+    throw 'Could not launch $uri';
   }
 }

@@ -17,26 +17,26 @@ class RecentWork {
 List<RecentWork> recentWorks = [
   RecentWork(
     id: 1,
-    title: "New & Fresh Looking Portfolio indeed at the end",
-    category: "Graphic Design",
-    image: "assets/images/work_1.png",
+    title: "An app which generates names for new born",
+    category: "by Flutter",
+    image: "assets/images/1.png",
   ),
   RecentWork(
     id: 2,
-    title: "The latest website that I published",
-    category: "Web Design",
-    image: "assets/images/work_2.png",
+    title: "A Fitness app that built on demand",
+    category: "by Flutter",
+    image: "assets/images/2.png",
   ),
   RecentWork(
     id: 3,
-    title: "Beginner level UIs which I designed",
-    category: "UI Design",
-    image: "assets/images/work_3.png",
+    title: "Demo UI of a plant app",
+    category: "by Flutter",
+    image: "assets/images/3.png",
   ),
   RecentWork(
     id: 4,
-    title: "Some kind of Games I've made",
-    category: "Interaction Design",
-    image: "assets/images/work_4.png",
+    title: "This is an animated car control app",
+    category: "by Flutter",
+    image: "assets/images/4.png",
   ),
 ];
