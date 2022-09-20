@@ -174,12 +174,12 @@ class ContactForm extends StatelessWidget {
               child: CustomOutlinedButton(
                 function: () {
                   context.read<ContactFormModel>().sendMail(
-                        clientDescriptionTextController.text,
-                        clientMailTextController.text,
-                        clientNameTextController.text,
-                        projectBudgetTextController.text,
-                        projectTypeTextController.text,
-                      );
+                      clientNameTextController.text,
+                      clientMailTextController.text,
+                      clientDescriptionTextController.text,
+                      projectTypeTextController.text,
+                      projectBudgetTextController.text,
+                      context);
 
                   clientDescriptionTextController.text = "";
                   clientMailTextController.text = "";
