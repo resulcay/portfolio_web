@@ -29,7 +29,8 @@ List<FeedBack> feedBacks = [
   FeedBack(
     id: 2,
     name: "Sefa Zor",
-    review: "",
+    review:
+        "An original developer. I see him as a team player. He enjoys working with others; I think it's easier to achieve something when people work together.",
     userPic: "assets/images/ref2.jpg",
     color: const Color(0xFFD9FFFC),
   ),
