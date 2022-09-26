@@ -10,17 +10,19 @@ class Menu extends StatefulWidget {
   State<Menu> createState() => _MenuState();
 }
 
+List<String> menuItems = [
+  "Home",
+  "About",
+  "Services",
+  "Portfolio",
+  "Testimonial",
+  "Contacts"
+];
+
 class _MenuState extends State<Menu> {
   int selectedIndex = 0;
   int hoverIndex = 0;
-  List<String> menuItems = [
-    "Home",
-    "About",
-    "Services",
-    "Portfolio",
-    "Testimonial",
-    "Contacts"
-  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(

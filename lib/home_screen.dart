@@ -5,6 +5,7 @@ import 'package:portfolio_web/sections/contact/contact_section.dart';
 import 'package:portfolio_web/sections/feedback/feedback_section.dart';
 import 'package:portfolio_web/sections/recent_work/recent_work_section.dart';
 import 'package:portfolio_web/sections/service/service_section.dart';
+import 'package:portfolio_web/sections/top_section/components/menu.dart';
 import 'package:portfolio_web/sections/top_section/top_section.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -37,6 +38,27 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           )
         ],
+      ),
+      drawer: Drawer(
+        child: Column(
+          children: List.generate(menuItems.length, (index) {
+            return Padding(
+              padding: const EdgeInsets.all(20),
+              child: InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                  scrollToIndex(index, scrollController, 500);
+                },
+                child: Container(
+                  // TODO This is the place I left.
+                  height: 100,
+                  width: 100,
+                  child: Text(menuItems[index]),
+                ),
+              ),
+            );
+          }),
+        ),
       ),
     );
   }
