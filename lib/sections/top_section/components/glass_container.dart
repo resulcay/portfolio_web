@@ -82,8 +82,8 @@ class GlassContainer extends StatelessWidget {
                       text: 'Software \nDeveloper',
                       waveColor: Colors.purple,
                       boxBackgroundColor: Colors.white24,
-                      boxHeight: 150,
-                      boxWidth: 300,
+                      boxHeight: 200,
+                      boxWidth: constraints.widthConstraints().maxWidth * .6,
                       textStyle: const TextStyle(
                           fontSize: 50,
                           fontWeight: FontWeight.bold,
