@@ -14,21 +14,7 @@ class RecentWorkSection extends StatefulWidget {
   State<RecentWorkSection> createState() => _RecentWorkSectionState();
 }
 
-class _RecentWorkSectionState extends State<RecentWorkSection>
-    with SingleTickerProviderStateMixin {
-  late AnimationController controller;
-  late Animation<double> animation;
-
-  @override
-  void initState() {
-    super.initState();
-    controller =
-        AnimationController(duration: const Duration(seconds: 3), vsync: this)
-          ..addListener(() => setState(() {}));
-    animation = Tween(begin: 80.0, end: -80.0).animate(controller);
-    controller.forward();
-  }
-
+class _RecentWorkSectionState extends State<RecentWorkSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -44,7 +30,7 @@ class _RecentWorkSectionState extends State<RecentWorkSection>
       child: Column(
         children: [
           Transform.translate(
-            offset: Offset(0, animation.value),
+            offset: const Offset(0, -80),
             child: const HireMeCard(),
           ),
           const SectionTitle(
@@ -98,11 +84,5 @@ class _RecentWorkSectionState extends State<RecentWorkSection>
     if (!await launchUrl(uri)) {
       throw 'Could not launch $uri';
     }
-  }
-
-  @override
-  void dispose() {
-    controller.dispose();
-    super.dispose();
   }
 }

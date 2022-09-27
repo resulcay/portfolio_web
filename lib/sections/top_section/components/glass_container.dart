@@ -77,25 +77,18 @@ class GlassContainer extends StatelessWidget {
                           fontSize: size,
                           color: Colors.white),
                     ),
-                    const SizedBox(height: kDefaultPadding * 3),
-                    Container(
-                      height: 150,
-                      width: 300,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: TextLiquidFill(
-                        text: 'Software \nDeveloper',
-                        waveColor: Colors.purple,
-                        boxBackgroundColor: Colors.white24,
-                        boxHeight: 200,
-                        boxWidth: 300,
-                        textStyle: const TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "Montserrat",
-                            color: Colors.blue),
-                      ),
+                    const SizedBox(height: kDefaultPadding * 4),
+                    TextLiquidFill(
+                      text: 'Software \nDeveloper',
+                      waveColor: Colors.purple,
+                      boxBackgroundColor: Colors.white24,
+                      boxHeight: 150,
+                      boxWidth: 300,
+                      textStyle: const TextStyle(
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "Montserrat",
+                          color: Colors.blue),
                     ),
                     const PersonPicture()
                   ],
@@ -153,8 +146,8 @@ class GlassContainer extends StatelessWidget {
                       text: 'Software \nDeveloper',
                       waveColor: Colors.blueAccent,
                       boxBackgroundColor: Colors.white24,
-                      boxHeight: 300,
-                      boxWidth: 500,
+                      boxHeight: 250,
+                      boxWidth: 450,
                       textStyle: const TextStyle(
                           fontSize: 70,
                           fontWeight: FontWeight.bold,
