@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   scrollToIndex(index, scrollController, 500);
                 },
                 child: Container(
-                  // TODO This is the place I left.
+                  // TODO: This is the place I left.
                   height: 100,
                   width: 100,
                   child: Text(menuItems[index]),
