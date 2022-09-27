@@ -85,9 +85,8 @@ class GlassContainer extends StatelessWidget {
                       boxHeight: 150,
                       boxWidth: 300,
                       textStyle: const TextStyle(
-                          fontSize: 40,
+                          fontSize: 50,
                           fontWeight: FontWeight.bold,
-                          fontFamily: "Montserrat",
                           color: Colors.blue),
                     ),
                     const PersonPicture()
