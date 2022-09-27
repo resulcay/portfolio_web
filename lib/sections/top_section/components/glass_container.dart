@@ -77,18 +77,18 @@ class GlassContainer extends StatelessWidget {
                           color: Colors.white),
                     ),
                     const SizedBox(height: kDefaultPadding * 4),
-                    SizedBox(
-                      height: 200,
-                      width: constraints.widthConstraints().maxWidth * .6,
-                      child: TextLiquidFill(
-                        text: 'Software \nDeveloper',
-                        waveColor: Colors.black,
-                        boxBackgroundColor: Colors.purple.shade100,
-                        textStyle: const TextStyle(
-                            fontSize: 50,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue),
-                      ),
+                    TextLiquidFill(
+                      // TODO : Correct this TextLiquidFill's responsiveness
+
+                      text: 'Software \nDeveloper',
+                      boxHeight: 200,
+                      boxWidth: constraints.widthConstraints().maxWidth * .6,
+                      waveColor: Colors.black,
+                      boxBackgroundColor: Colors.purple.shade100,
+                      textStyle: const TextStyle(
+                          fontSize: 50,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue),
                     ),
                     const PersonPicture()
                   ],
