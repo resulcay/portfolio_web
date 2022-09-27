@@ -4,7 +4,6 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:neon/neon.dart';
 import 'package:portfolio_web/extensions/context_extension.dart';
-import 'package:portfolio_web/sections/top_section/components/menu.dart';
 import 'package:portfolio_web/sections/top_section/components/person_picture.dart';
 
 import '../../../constants.dart';
@@ -78,16 +77,18 @@ class GlassContainer extends StatelessWidget {
                           color: Colors.white),
                     ),
                     const SizedBox(height: kDefaultPadding * 4),
-                    TextLiquidFill(
-                      text: 'Software \nDeveloper',
-                      waveColor: Colors.purple,
-                      boxBackgroundColor: Colors.white24,
-                      boxHeight: 200,
-                      boxWidth: constraints.widthConstraints().maxWidth * .6,
-                      textStyle: const TextStyle(
-                          fontSize: 50,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue),
+                    SizedBox(
+                      height: 200,
+                      width: constraints.widthConstraints().maxWidth * .6,
+                      child: TextLiquidFill(
+                        text: 'Software \nDeveloper',
+                        waveColor: Colors.black,
+                        boxBackgroundColor: Colors.purple.shade100,
+                        textStyle: const TextStyle(
+                            fontSize: 50,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue),
+                      ),
                     ),
                     const PersonPicture()
                   ],

@@ -49,8 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   Navigator.pop(context);
                   scrollToIndex(index, scrollController, 500);
                 },
-                child: Container(
-                  // TODO: This is the place I left.
+                child: SizedBox(
                   height: 100,
                   width: 100,
                   child: Text(menuItems[index]),
