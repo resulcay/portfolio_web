@@ -78,15 +78,13 @@ class GlassContainer extends StatelessWidget {
                     ),
                     const SizedBox(height: kDefaultPadding * 4),
                     TextLiquidFill(
-                      // TODO : Correct this TextLiquidFill's responsiveness
-
                       text: 'Software \nDeveloper',
                       boxHeight: 200,
                       boxWidth: constraints.widthConstraints().maxWidth * .6,
-                      waveColor: Colors.black,
-                      boxBackgroundColor: Colors.purple.shade100,
+                      waveColor: Colors.blueAccent,
+                      boxBackgroundColor: Colors.white24,
                       textStyle: const TextStyle(
-                          fontSize: 50,
+                          fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.blue),
                     ),
