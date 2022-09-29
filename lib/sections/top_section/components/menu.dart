@@ -16,7 +16,7 @@ List<String> menuItems = [
   "Services",
   "Portfolio",
   "Testimonial",
-  "Contacts"
+  "Contact"
 ];
 
 class _MenuState extends State<Menu> {

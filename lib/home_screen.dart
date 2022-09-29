@@ -19,14 +19,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final List<String> drawerItems = [
-      "Home",
-      "About",
-      "Services",
-      "Portfolio",
-      "Testimonial",
-      "Contacts"
-    ];
     return Scaffold(
       body: ListView(
         controller: scrollController,
@@ -36,72 +28,115 @@ class _HomeScreenState extends State<HomeScreen> {
               TopSection(),
               SizedBox(height: kDefaultPadding * 2),
               AboutSection(),
-              // ServiceSection(),
-              // RecentWorkSection(),
-              // FeedbackSection(),
-              // SizedBox(height: kDefaultPadding),
-              // ContactSection(),
-              // SizedBox(height: 500),
+              ServiceSection(),
+              RecentWorkSection(),
+              FeedbackSection(),
+              SizedBox(height: kDefaultPadding),
+              ContactSection(),
+              SizedBox(height: 500),
             ],
           )
         ],
       ),
-      drawer: Drawer(
-        child: Padding(
-          padding: const EdgeInsets.only(top: 40, left: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  CircleAvatar(
-                    radius: 50,
-                    backgroundColor: const Color.fromARGB(255, 100, 52, 60),
+      drawer: _appDrawer(context),
+    );
+  }
+
+  Drawer _appDrawer(BuildContext context) {
+    final List<IconData> drawerIcons = [
+      Icons.local_fire_department_outlined,
+      Icons.contact_support_outlined,
+      Icons.code_outlined,
+      Icons.done_all_outlined,
+      Icons.lightbulb_outlined,
+      Icons.alternate_email_outlined,
+    ];
+    final List<String> drawerItems = [
+      "Home",
+      "About",
+      "Services",
+      "Portfolio",
+      "Testimonial",
+      "Contact"
+    ];
+    return Drawer(
+      child: Padding(
+        padding: const EdgeInsets.only(top: 40, left: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            _drawerTopSection(context),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: List.generate(drawerItems.length, (index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: InkWell(
+                    hoverColor: Colors.transparent,
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () {
+                      Navigator.pop(context);
+                      scrollToIndex(index, scrollController, 500);
+                    },
                     child: Container(
-                      margin: const EdgeInsets.all(10),
-                      child: Image.asset("assets/images/person.png"),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Text(
-                    "Resul Çay",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline5!
-                        .copyWith(fontWeight: FontWeight.bold, fontSize: 30),
-                  ),
-                  const SizedBox(height: 2),
-                  const Text("Software Developer"),
-                ],
-              ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: List.generate(drawerItems.length, (index) {
-                  return Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                        scrollToIndex(index, scrollController, 500);
-                      },
-                      child: SizedBox(
-                        height: 40,
-                        width: 90,
-                        child: Text(drawerItems[index]),
+                      height: 50,
+                      width: 270,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8),
+                        color: const Color(0xFFF4EEF9),
+                      ),
+                      child: Row(
+                        children: [
+                          const SizedBox(width: 10),
+                          Icon(drawerIcons[index]),
+                          const SizedBox(width: 30),
+                          Text(
+                            drawerItems[index],
+                            style: const TextStyle(fontSize: 18),
+                          ),
+                        ],
                       ),
                     ),
-                  );
-                }),
-              ),
-            ],
-          ),
+                  ),
+                );
+              }),
+            ),
+          ],
         ),
       ),
+    );
+  }
+
+  Column _drawerTopSection(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        CircleAvatar(
+          radius: 50,
+          backgroundColor: const Color.fromARGB(255, 100, 52, 60),
+          child: Container(
+            margin: const EdgeInsets.all(10),
+            child: Image.asset("assets/images/person.png"),
+          ),
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Text(
+          "Resul Çay",
+          style: Theme.of(context)
+              .textTheme
+              .headline5!
+              .copyWith(fontWeight: FontWeight.bold, fontSize: 30),
+        ),
+        const SizedBox(height: 2),
+        const Text("Software Developer"),
+        const SizedBox(height: kDefaultPadding * 1.5),
+        const Divider(endIndent: 20)
+      ],
     );
   }
 }
