@@ -84,7 +84,7 @@ class GlassContainer extends StatelessWidget {
                       waveColor: Colors.blueAccent,
                       boxBackgroundColor: Colors.white24,
                       textStyle: const TextStyle(
-                          fontSize: 20,
+                          fontSize: 50,
                           fontWeight: FontWeight.bold,
                           color: Colors.blue),
                     ),
