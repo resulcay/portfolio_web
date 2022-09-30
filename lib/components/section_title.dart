@@ -16,42 +16,83 @@ class SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      constraints: const BoxConstraints(maxWidth: 1110),
-      margin: const EdgeInsets.symmetric(vertical: kDefaultPadding),
-      height: 100,
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.only(bottom: 72),
-            margin: const EdgeInsets.only(right: kDefaultPadding),
-            height: 100,
-            width: 8,
-            color: Colors.black,
-            child: DecoratedBox(decoration: BoxDecoration(color: color)),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return LayoutBuilder(builder: (context, constraints) {
+      if (constraints.maxWidth < 1110) {
+        return Container(
+          margin: const EdgeInsets.symmetric(vertical: kDefaultPadding),
+          height: 160,
+          child: Row(
             children: [
-              Text(
-                title,
-                style: const TextStyle(
-                  color: kTextColor,
-                  fontWeight: FontWeight.w200,
-                ),
+              const SizedBox(width: 10),
+              Container(
+                padding: const EdgeInsets.only(bottom: 72),
+                margin: const EdgeInsets.only(right: kDefaultPadding),
+                height: 100,
+                width: 8,
+                color: Colors.black,
+                child: DecoratedBox(decoration: BoxDecoration(color: color)),
               ),
-              Text(
-                subTitle,
-                style: Theme.of(context).textTheme.headline2!.copyWith(
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      color: kTextColor,
+                      fontWeight: FontWeight.w200,
                     ),
+                  ),
+                  Text(
+                    subTitle,
+                    style: Theme.of(context).textTheme.headline4!.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                        fontSize: constraints.maxWidth / 15),
+                  )
+                ],
               )
             ],
-          )
-        ],
-      ),
-    );
+          ),
+        );
+      }
+      return Container(
+        constraints: const BoxConstraints(maxWidth: 1110),
+        margin: const EdgeInsets.symmetric(vertical: kDefaultPadding),
+        height: 100,
+        child: Row(
+          children: [
+            Container(
+              padding: const EdgeInsets.only(bottom: 72),
+              margin: const EdgeInsets.only(right: kDefaultPadding),
+              height: 100,
+              width: 8,
+              color: Colors.black,
+              child: DecoratedBox(decoration: BoxDecoration(color: color)),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: const TextStyle(
+                    color: kTextColor,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+                Text(
+                  subTitle,
+                  style: Theme.of(context).textTheme.headline2!.copyWith(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                )
+              ],
+            )
+          ],
+        ),
+      );
+    });
   }
 }

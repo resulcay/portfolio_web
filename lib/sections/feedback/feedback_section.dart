@@ -11,44 +11,86 @@ class FeedbackSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2.5),
-      constraints: const BoxConstraints(maxWidth: 1110),
-      child: Column(
-        children: [
-          const SectionTitle(
-              title: "Client's testimonials that inspired me a lot",
-              subTitle: "Feedback Received",
-              color: Color(0xFF00B1FF)),
-          const SizedBox(height: kDefaultPadding),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: List.generate(
-              feedBacks.length,
-              (index) => FeedbackCard(
-                index: index,
-                function: () {
-                  switch (index) {
-                    case 0:
-                      _launchUrl(
-                          "https://www.linkedin.com/in/hayri-can-efe-5b2a89169/");
-                      break;
-                    case 1:
-                      _launchUrl("https://www.linkedin.com/in/sefazor/");
-                      break;
-                    case 2:
-                      _launchUrl(
-                          "https://www.linkedin.com/in/ismail-aslan-698a30234/");
-                      break;
-                    default:
-                  }
-                },
+    return LayoutBuilder(builder: (context, constraints) {
+      if (constraints.maxWidth < 1110) {
+        return Container(
+          padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2.5),
+          child: Column(
+            children: [
+              const SectionTitle(
+                title: "Client's testimonials that inspired me a lot",
+                subTitle: "Feedback Received",
+                color: Color(0xFF00B1FF),
+              ),
+              const SizedBox(height: kDefaultPadding),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: List.generate(
+                  feedBacks.length,
+                  (index) => FeedbackCard(
+                    index: index,
+                    function: () {
+                      switch (index) {
+                        case 0:
+                          _launchUrl(
+                              "https://www.linkedin.com/in/hayri-can-efe-5b2a89169/");
+                          break;
+                        case 1:
+                          _launchUrl("https://www.linkedin.com/in/sefazor/");
+                          break;
+                        case 2:
+                          _launchUrl(
+                              "https://www.linkedin.com/in/ismail-aslan-698a30234/");
+                          break;
+                        default:
+                      }
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      }
+      return Container(
+        padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2.5),
+        constraints: const BoxConstraints(maxWidth: 1110),
+        child: Column(
+          children: [
+            const SectionTitle(
+                title: "Client's testimonials that inspired me a lot",
+                subTitle: "Feedback Received",
+                color: Color(0xFF00B1FF)),
+            const SizedBox(height: kDefaultPadding),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(
+                feedBacks.length,
+                (index) => FeedbackCard(
+                  index: index,
+                  function: () {
+                    switch (index) {
+                      case 0:
+                        _launchUrl(
+                            "https://www.linkedin.com/in/hayri-can-efe-5b2a89169/");
+                        break;
+                      case 1:
+                        _launchUrl("https://www.linkedin.com/in/sefazor/");
+                        break;
+                      case 2:
+                        _launchUrl(
+                            "https://www.linkedin.com/in/ismail-aslan-698a30234/");
+                        break;
+                      default:
+                    }
+                  },
+                ),
               ),
             ),
-          ),
-        ],
-      ),
-    );
+          ],
+        ),
+      );
+    });
   }
 }
 

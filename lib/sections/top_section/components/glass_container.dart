@@ -63,31 +63,14 @@ class GlassContainer extends StatelessWidget {
                           .copyWith(color: Colors.white),
                     ),
                     const SizedBox(height: kDefaultPadding * 3),
-                    Neon(
-                      text: 'Resul Çay',
-                      color: Colors.purple,
-                      font: NeonFont.Cyberpunk,
-                      flickeringText: true,
-                      flickeringLetters: const [0, 1, 7, 8],
-                      glowing: true,
-                      glowingDuration: const Duration(seconds: 2),
-                      textStyle: TextStyle(
-                          fontFamily: "Montserrat",
-                          fontSize: size,
-                          color: Colors.white),
+                    Text(
+                      "Resul Çay",
+                      style: TextStyle(
+                        color: const Color.fromARGB(248, 179, 255, 0),
+                        fontWeight: FontWeight.w500,
+                        fontSize: constraints.maxWidth / 8,
+                      ),
                     ),
-                    const SizedBox(height: kDefaultPadding * 4),
-                    // TextLiquidFill(
-                    //   text: 'Software \nDeveloper',
-                    //   boxHeight: 200,
-                    //   boxWidth: constraints.widthConstraints().maxWidth * .6,
-                    //   waveColor: Colors.blueAccent,
-                    //   boxBackgroundColor: Colors.white24,
-                    //   textStyle: const TextStyle(
-                    //       fontSize: 50,
-                    //       fontWeight: FontWeight.bold,
-                    //       color: Colors.blue),
-                    // ),
                     const PersonPicture()
                   ],
                 ),

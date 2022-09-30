@@ -43,6 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Drawer _appDrawer(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     final List<IconData> drawerIcons = [
       Icons.local_fire_department_outlined,
       Icons.contact_support_outlined,
@@ -62,49 +63,75 @@ class _HomeScreenState extends State<HomeScreen> {
     return Drawer(
       child: Padding(
         padding: const EdgeInsets.only(top: 40, left: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _drawerTopSection(context),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: List.generate(drawerItems.length, (index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: InkWell(
-                    hoverColor: Colors.transparent,
-                    splashColor: Colors.transparent,
-                    highlightColor: Colors.transparent,
-                    onTap: () {
-                      Navigator.pop(context);
-                      scrollToIndex(index, scrollController, 500);
-                    },
-                    child: Container(
-                      height: 50,
-                      width: 270,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: const Color(0xFFF4EEF9),
-                      ),
-                      child: Row(
-                        children: [
-                          const SizedBox(width: 10),
-                          Icon(drawerIcons[index]),
-                          const SizedBox(width: 30),
-                          Text(
-                            drawerItems[index],
-                            style: const TextStyle(fontSize: 18),
-                          ),
-                        ],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _drawerTopSection(context),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: List.generate(drawerItems.length, (index) {
+                  return Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                    child: InkWell(
+                      hoverColor: Colors.transparent,
+                      splashColor: Colors.transparent,
+                      highlightColor: Colors.transparent,
+                      onTap: () {
+                        Navigator.pop(context);
+                        switch (index) {
+                          case 0:
+                            scrollToIndex(index, scrollController, 0);
+                            break;
+                          case 1:
+                            scrollToIndex(index, scrollController, size.height);
+                            break;
+                          case 2:
+                            scrollToIndex(index, scrollController, size.height);
+                            break;
+                          case 3:
+                            scrollToIndex(
+                                index, scrollController, size.height * 1.3);
+                            break;
+                          case 4:
+                            scrollToIndex(
+                                index, scrollController, size.height * 1.5);
+                            break;
+                          case 5:
+                            scrollToIndex(
+                                index, scrollController, size.height * 1.5);
+                            break;
+                          default:
+                        }
+                      },
+                      child: Container(
+                        height: 50,
+                        width: 270,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+                          color: const Color(0xFFF4EEF9),
+                        ),
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 10),
+                            Icon(drawerIcons[index]),
+                            const SizedBox(width: 30),
+                            Text(
+                              drawerItems[index],
+                              style: const TextStyle(fontSize: 18),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                  ),
-                );
-              }),
-            ),
-          ],
+                  );
+                }),
+              ),
+              const SizedBox(height: kDefaultPadding * 2)
+            ],
+          ),
         ),
       ),
     );

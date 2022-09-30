@@ -12,29 +12,55 @@ class ServiceSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
-      constraints: const BoxConstraints(maxWidth: 1110),
-      child: Column(
-        children: [
-          const SectionTitle(
-            title: "My Strong Arenas",
-            subTitle: "Service Offerings",
-            color: Color(0xFFFF0000),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: List.generate(
-              services.length,
-              (index) => ServiceCard(
-                index: index,
-                function: () {
-                  scrollToIndex(3, scrollController, 1310);
-                },
+        margin: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2),
+        constraints: const BoxConstraints(maxWidth: 1110),
+        child: LayoutBuilder(builder: (context, constraints) {
+          if (constraints.maxWidth < 1110) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const SectionTitle(
+                  title: "My Strong Arenas",
+                  subTitle: "Service Offerings",
+                  color: Color(0xFFFF0000),
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    services.length,
+                    (index) => ServiceCard(
+                      index: index,
+                      function: () {
+                        scrollToIndex(3, scrollController, 5000);
+                      },
+                    ),
+                  ),
+                )
+              ],
+            );
+          }
+
+          return Column(
+            children: [
+              const SectionTitle(
+                title: "My Strong Arenas",
+                subTitle: "Service Offerings",
+                color: Color(0xFFFF0000),
               ),
-            ),
-          )
-        ],
-      ),
-    );
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: List.generate(
+                  services.length,
+                  (index) => ServiceCard(
+                    index: index,
+                    function: () {
+                      scrollToIndex(3, scrollController, 1310);
+                    },
+                  ),
+                ),
+              )
+            ],
+          );
+        }));
   }
 }

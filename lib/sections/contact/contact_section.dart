@@ -51,54 +51,107 @@ class ContactBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      constraints: const BoxConstraints(maxWidth: 1110),
-      padding: const EdgeInsets.all(kDefaultPadding * 3),
-      margin: const EdgeInsets.only(),
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
-        ),
-      ),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 1110) {
+          return Container(
+            padding: const EdgeInsets.all(kDefaultPadding * 3),
+            margin: const EdgeInsets.only(),
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SocialCard(
+                  userName: "+90 542 220 71 70            ",
+                  iconPath: "assets/images/whatsapp.png",
+                  color: const Color(0xFFD9FFFC),
+                  function: () {
+                    _launchUrl(
+                        "https://wa.me/905422207170/?text=Hi%2C%20Resul.%20I%20am%20interested%20in%20one%20of%20your%20services.");
+                  },
+                ),
+                const SizedBox(height: kDefaultPadding),
+                SocialCard(
+                  userName: "resulcayop@gmail.com",
+                  iconPath: "assets/images/gmail.png",
+                  color: const Color(0xFFE4FFC7),
+                  function: () {
+                    launchMailto();
+                  },
+                ),
+                const SizedBox(height: kDefaultPadding),
+                SocialCard(
+                  userName: "Resul Çay                          ",
+                  iconPath: "assets/images/linkedin.png",
+                  color: const Color(0xFFE8F0F9),
+                  function: () {
+                    _launchUrl(
+                        "https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/");
+                  },
+                ),
+                const SizedBox(height: kDefaultPadding * 2),
+                const ContactForm()
+              ],
+            ),
+          );
+        }
+        return Container(
+          constraints: const BoxConstraints(maxWidth: 1110),
+          padding: const EdgeInsets.all(kDefaultPadding * 3),
+          margin: const EdgeInsets.only(),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
+          child: Column(
             children: [
-              SocialCard(
-                userName: "+90 542 220 71 70",
-                iconPath: "assets/images/whatsapp.png",
-                color: const Color(0xFFD9FFFC),
-                function: () {
-                  _launchUrl(
-                      "https://wa.me/905422207170/?text=Hi%2C%20Resul.%20I%20am%20interested%20in%20one%20of%20your%20services.");
-                },
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  SocialCard(
+                    userName: "+90 542 220 71 70",
+                    iconPath: "assets/images/whatsapp.png",
+                    color: const Color(0xFFD9FFFC),
+                    function: () {
+                      _launchUrl(
+                          "https://wa.me/905422207170/?text=Hi%2C%20Resul.%20I%20am%20interested%20in%20one%20of%20your%20services.");
+                    },
+                  ),
+                  SocialCard(
+                    userName: "resulcayop@gmail.com",
+                    iconPath: "assets/images/gmail.png",
+                    color: const Color(0xFFE4FFC7),
+                    function: () {
+                      launchMailto();
+                    },
+                  ),
+                  SocialCard(
+                    userName: "       Resul Çay       ",
+                    iconPath: "assets/images/linkedin.png",
+                    color: const Color(0xFFE8F0F9),
+                    function: () {
+                      _launchUrl(
+                          "https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/");
+                    },
+                  ),
+                ],
               ),
-              SocialCard(
-                userName: "resulcayop@gmail.com",
-                iconPath: "assets/images/gmail.png",
-                color: const Color(0xFFE4FFC7),
-                function: () {
-                  launchMailto();
-                },
-              ),
-              SocialCard(
-                userName: "       Resul Çay       ",
-                iconPath: "assets/images/linkedin.png",
-                color: const Color(0xFFE8F0F9),
-                function: () {
-                  _launchUrl(
-                      "https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/");
-                },
-              ),
+              const SizedBox(height: kDefaultPadding * 2),
+              const ContactForm()
             ],
           ),
-          const SizedBox(height: kDefaultPadding * 2),
-          const ContactForm()
-        ],
-      ),
+        );
+      },
     );
   }
 }

@@ -21,74 +21,137 @@ class _FeedbackCardState extends State<FeedbackCard> {
   bool isHover = false;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: widget.function,
-      onHover: (value) {
-        setState(() {
-          isHover = value;
-        });
-      },
-      splashColor: Colors.transparent,
-      focusColor: Colors.transparent,
-      hoverColor: Colors.transparent,
-      highlightColor: Colors.transparent,
-      child: AnimatedContainer(
-        duration: duration,
-        padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
-        margin: const EdgeInsets.only(top: kDefaultPadding * 3),
-        height: 350,
-        width: 350,
-        decoration: BoxDecoration(
-          color: feedBacks[widget.index].color,
-          borderRadius: BorderRadius.circular(10),
-          boxShadow: [
-            if (isHover) kDefaultCardShadow,
-          ],
-        ),
-        child: Column(
-          children: [
-            Transform.translate(
-              offset: const Offset(0, -55),
-              child: AnimatedContainer(
-                duration: duration,
-                height: 100,
-                width: 100,
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    border: Border.all(
-                      color: Colors.white,
-                      width: 10,
-                    ),
-                    image: DecorationImage(
-                      image: AssetImage(
-                        feedBacks[widget.index].userPic,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 1110) {
+          return InkWell(
+            onTap: widget.function,
+            splashColor: Colors.transparent,
+            focusColor: Colors.transparent,
+            hoverColor: Colors.transparent,
+            highlightColor: Colors.transparent,
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+              margin: const EdgeInsets.only(top: kDefaultPadding * 3),
+              height: 350,
+              width: 350,
+              decoration: BoxDecoration(
+                color: feedBacks[widget.index].color,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Column(
+                children: [
+                  Transform.translate(
+                    offset: const Offset(0, -55),
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 10,
+                        ),
+                        image: DecorationImage(
+                          image: AssetImage(
+                            feedBacks[widget.index].userPic,
+                          ),
+                        ),
                       ),
                     ),
-                    boxShadow: [
-                      if (!isHover) kDefaultCardShadow,
-                    ]),
+                  ),
+                  Text(
+                    feedBacks[widget.index].review,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      color: kTextColor,
+                      fontWeight: FontWeight.w300,
+                      fontStyle: FontStyle.italic,
+                      height: 1.5,
+                    ),
+                  ),
+                  const SizedBox(height: kDefaultPadding * 2),
+                  Text(
+                    feedBacks[widget.index].name,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                ],
               ),
             ),
-            Text(
-              feedBacks[widget.index].review,
-              style: const TextStyle(
-                fontSize: 18,
-                color: kTextColor,
-                fontWeight: FontWeight.w300,
-                fontStyle: FontStyle.italic,
-                height: 1.5,
-              ),
+          );
+        }
+        return InkWell(
+          onTap: widget.function,
+          onHover: (value) {
+            setState(() {
+              isHover = value;
+            });
+          },
+          splashColor: Colors.transparent,
+          focusColor: Colors.transparent,
+          hoverColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          child: AnimatedContainer(
+            duration: duration,
+            padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+            margin: const EdgeInsets.only(top: kDefaultPadding * 3),
+            height: 350,
+            width: 350,
+            decoration: BoxDecoration(
+              color: feedBacks[widget.index].color,
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                if (isHover) kDefaultCardShadow,
+              ],
             ),
-            const SizedBox(height: kDefaultPadding * 2),
-            Text(
-              feedBacks[widget.index].name,
-              style: const TextStyle(
-                fontWeight: FontWeight.bold,
-              ),
-            )
-          ],
-        ),
-      ),
+            child: Column(
+              children: [
+                Transform.translate(
+                  offset: const Offset(0, -55),
+                  child: AnimatedContainer(
+                    duration: duration,
+                    height: 100,
+                    width: 100,
+                    decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        border: Border.all(
+                          color: Colors.white,
+                          width: 10,
+                        ),
+                        image: DecorationImage(
+                          image: AssetImage(
+                            feedBacks[widget.index].userPic,
+                          ),
+                        ),
+                        boxShadow: [
+                          if (!isHover) kDefaultCardShadow,
+                        ]),
+                  ),
+                ),
+                Text(
+                  feedBacks[widget.index].review,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    color: kTextColor,
+                    fontWeight: FontWeight.w300,
+                    fontStyle: FontStyle.italic,
+                    height: 1.5,
+                  ),
+                ),
+                const SizedBox(height: kDefaultPadding * 2),
+                Text(
+                  feedBacks[widget.index].name,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

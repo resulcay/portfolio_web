@@ -23,39 +23,71 @@ class _SocialCardState extends State<SocialCard> {
   bool isHover = false;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: widget.function,
-      onHover: (value) {
-        setState(() {
-          isHover = value;
-        });
-      },
-      child: FittedBox(
-        child: AnimatedContainer(
-          duration: const Duration(milliseconds: 200),
-          padding: const EdgeInsets.symmetric(
-            horizontal: kDefaultPadding * 1.5,
-            vertical: kDefaultPadding / 2,
-          ),
-          decoration: BoxDecoration(
-              color: widget.color,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                if (isHover) kDefaultCardShadow,
-              ]),
-          child: Row(
-            children: [
-              Image.asset(
-                widget.iconPath,
-                height: 80,
-                width: 80,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < 1110) {
+          return InkWell(
+            onTap: widget.function,
+            child: FittedBox(
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: kDefaultPadding * 1.5,
+                  vertical: kDefaultPadding / 2,
+                ),
+                decoration: BoxDecoration(
+                  color: widget.color,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: Row(
+                  children: [
+                    Image.asset(
+                      widget.iconPath,
+                      height: 80,
+                      width: 80,
+                    ),
+                    const SizedBox(width: kDefaultPadding),
+                    Text(widget.userName)
+                  ],
+                ),
               ),
-              const SizedBox(width: kDefaultPadding),
-              Text(widget.userName)
-            ],
+            ),
+          );
+        }
+        return InkWell(
+          onTap: widget.function,
+          onHover: (value) {
+            setState(() {
+              isHover = value;
+            });
+          },
+          child: FittedBox(
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              padding: const EdgeInsets.symmetric(
+                horizontal: kDefaultPadding * 1.5,
+                vertical: kDefaultPadding / 2,
+              ),
+              decoration: BoxDecoration(
+                  color: widget.color,
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    if (isHover) kDefaultCardShadow,
+                  ]),
+              child: Row(
+                children: [
+                  Image.asset(
+                    widget.iconPath,
+                    height: 80,
+                    width: 80,
+                  ),
+                  const SizedBox(width: kDefaultPadding),
+                  Text(widget.userName)
+                ],
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
