@@ -1,6 +1,19 @@
 # portfolio_web
 
-A new Flutter project.
+---Desktop Size View ScreenShots---
+
+<img src="assets/images/a.png" width="1670">  |  <img src="assets/images/b.png" width="1670">  |
+<img src="assets/images/c.png" width="1670">  |  <img src="assets/images/d.png" width="1670">  |
+
+---Tablet Size View  ScreenShots---
+
+<img src="assets/images/5.png" width="1000">  |  <img src="assets/images/6.png" width="1000">  |
+<img src="assets/images/7.png" width="1000">  |  <img src="assets/images/8.png" width="1000">  |
+
+---Mobile Size View  ScreenShots---
+
+<img src="assets/images/9.png" width="500">  |  <img src="assets/images/10.png" width="500">  |
+<img src="assets/images/11.png" width="500">  |  <img src="assets/images/12.png" width="500">  |
 
 ## Getting Started
 
