@@ -63,12 +63,25 @@ class GlassContainer extends StatelessWidget {
                           .copyWith(color: Colors.white),
                     ),
                     const SizedBox(height: kDefaultPadding * 3),
-                    Text(
-                      "Resul Çay",
-                      style: TextStyle(
-                        color: const Color.fromARGB(248, 179, 255, 0),
-                        fontWeight: FontWeight.w500,
-                        fontSize: constraints.maxWidth / 8,
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 134, 85, 102)
+                            .withOpacity(0.3),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(10),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(12),
+                        child: Text(
+                          "Resul Çay",
+                          style: TextStyle(
+                            color: const Color.fromARGB(248, 179, 255, 0)
+                                .withOpacity(0.8),
+                            fontWeight: FontWeight.w500,
+                            fontSize: constraints.maxWidth / 8,
+                          ),
+                        ),
                       ),
                     ),
                     const PersonPicture()
