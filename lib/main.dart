@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      title: "Resul's Portfolio Website",
+      title: "Resul's Portfolio Website".tr(),
       theme: ThemeData(
           inputDecorationTheme: kDefaultInputDecorationTheme,
           visualDensity: VisualDensity.adaptivePlatformDensity,
