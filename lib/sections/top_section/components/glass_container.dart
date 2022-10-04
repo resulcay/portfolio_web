@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
@@ -8,13 +9,18 @@ import 'package:portfolio_web/sections/top_section/components/person_picture.dar
 
 import '../../../constants.dart';
 
-class GlassContainer extends StatelessWidget {
+class GlassContainer extends StatefulWidget {
   final double size;
   const GlassContainer({
     Key? key,
     required this.size,
   }) : super(key: key);
 
+  @override
+  State<GlassContainer> createState() => _GlassContainerState();
+}
+
+class _GlassContainerState extends State<GlassContainer> {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
@@ -40,7 +46,7 @@ class GlassContainer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         IconButton(
                           onPressed: () {
@@ -52,11 +58,53 @@ class GlassContainer extends StatelessWidget {
                             color: Colors.white,
                           ),
                         ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    context.setLocale(const Locale("tr"));
+                                  });
+                                },
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/tr.png",
+                                      scale: 3,
+                                    ),
+                                    const SizedBox(width: 5),
+                                    const Text("Türkçe"),
+                                  ],
+                                )),
+                            const SizedBox(height: 10),
+                            ElevatedButton(
+                                onPressed: () {
+                                  setState(() {
+                                    context.setLocale(const Locale("en"));
+                                  });
+                                },
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/gb.png",
+                                      scale: 3,
+                                    ),
+                                    const SizedBox(width: 5),
+                                    const Text("English"),
+                                  ],
+                                ))
+                          ],
+                        ),
                       ],
                     ),
                     const SizedBox(height: kDefaultPadding * 3),
                     Text(
-                      "Hello Dear Guest, I am",
+                      "Hello Dear Guest, I am".tr(),
                       style: Theme.of(context)
                           .textTheme
                           .headline5!
@@ -103,12 +151,59 @@ class GlassContainer extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: kDefaultPadding * 3),
-                  Text(
-                    "Hello Dear Guest, I am",
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline5!
-                        .copyWith(color: Colors.white),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Hello Dear Guest, I am".tr(),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline5!
+                            .copyWith(color: Colors.white),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  context.setLocale(const Locale("tr"));
+                                });
+                              },
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Image.asset(
+                                    "assets/images/tr.png",
+                                    scale: 3,
+                                  ),
+                                  const SizedBox(width: 5),
+                                  const Text("Türkçe"),
+                                ],
+                              )),
+                          const SizedBox(height: 10),
+                          ElevatedButton(
+                              onPressed: () {
+                                setState(() {
+                                  context.setLocale(const Locale("en"));
+                                });
+                              },
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Image.asset(
+                                    "assets/images/gb.png",
+                                    scale: 3,
+                                  ),
+                                  const SizedBox(width: 5),
+                                  const Text("English"),
+                                ],
+                              ))
+                        ],
+                      )
+                    ],
                   ),
                   const SizedBox(height: kDefaultPadding * 3),
                   Row(
@@ -124,7 +219,7 @@ class GlassContainer extends StatelessWidget {
                         glowingDuration: const Duration(seconds: 2),
                         textStyle: TextStyle(
                             fontFamily: "Montserrat",
-                            fontSize: size,
+                            fontSize: widget.size,
                             color: Colors.white),
                       ),
                     ],
@@ -137,7 +232,9 @@ class GlassContainer extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                     ),
                     child: TextLiquidFill(
-                      text: 'Software \nDeveloper',
+                      text: context.locale == const Locale("tr")
+                          ? "Yazılım \nGeliştiricisi"
+                          : "Software \nDeveloper",
                       waveColor: Colors.blueAccent,
                       boxBackgroundColor: Colors.white24,
                       boxHeight: 250,

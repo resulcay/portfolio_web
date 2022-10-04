@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/constants.dart';
 import 'package:portfolio_web/sections/about/about_section.dart';
@@ -119,7 +120,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Icon(drawerIcons[index]),
                             const SizedBox(width: 30),
                             Text(
-                              drawerItems[index],
+                              drawerItems[index].tr(),
                               style: const TextStyle(fontSize: 18),
                             ),
                           ],
@@ -160,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
               .copyWith(fontWeight: FontWeight.bold, fontSize: 30),
         ),
         const SizedBox(height: 2),
-        const Text("Software Developer"),
+        Text("Software Developer".tr()),
         const SizedBox(height: kDefaultPadding * 1.5),
         const Divider(endIndent: 20)
       ],

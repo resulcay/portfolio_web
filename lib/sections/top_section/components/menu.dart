@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/home_screen.dart';
 
@@ -86,7 +87,7 @@ class _MenuState extends State<Menu> {
           alignment: Alignment.center,
           children: [
             Text(
-              menuItems[index],
+              menuItems[index].tr(),
               style: const TextStyle(
                 fontSize: 20,
                 color: kTextColor,
