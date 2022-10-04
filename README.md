@@ -1,5 +1,7 @@
 # portfolio_web
 
+public site link : https://resulcay.web.app/
+
 ---Desktop Size View ScreenShots---
 
 <img src="assets/images/a.png" width="1670">  |  <img src="assets/images/b.png" width="1670">  |
@@ -14,6 +16,9 @@
 
 <img src="assets/images/9.png" width="500">  |  <img src="assets/images/10.png" width="500">  |
 <img src="assets/images/11.png" width="500">  |  <img src="assets/images/12.png" width="500">  |
+
+
+Inspired on: https://www.youtube.com/watch?v=Y4oJMiEwlBg
 
 ## Getting Started
 
