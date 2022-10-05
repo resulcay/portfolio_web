@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -61,7 +62,9 @@ class _FeedbackCardState extends State<FeedbackCard> {
                     ),
                   ),
                   Text(
-                    feedBacks[widget.index].review,
+                    context.locale == const Locale("en")
+                        ? feedBacks[widget.index].review
+                        : feedBacksTr[widget.index].review,
                     style: const TextStyle(
                       fontSize: 18,
                       color: kTextColor,
@@ -131,7 +134,9 @@ class _FeedbackCardState extends State<FeedbackCard> {
                   ),
                 ),
                 Text(
-                  feedBacks[widget.index].review,
+                  context.locale == const Locale("en")
+                      ? feedBacks[widget.index].review
+                      : feedBacksTr[widget.index].review,
                   style: const TextStyle(
                     fontSize: 18,
                     color: kTextColor,

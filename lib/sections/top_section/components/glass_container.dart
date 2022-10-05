@@ -47,6 +47,7 @@ class _GlassContainerState extends State<GlassContainer> {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         IconButton(
                           onPressed: () {
@@ -58,57 +59,82 @@ class _GlassContainerState extends State<GlassContainer> {
                             color: Colors.white,
                           ),
                         ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    context.setLocale(const Locale("tr"));
-                                  });
-                                },
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Image.asset(
-                                      "assets/images/tr.png",
-                                      scale: 3,
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: ElevatedButton(
+                                    style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                        const Color.fromARGB(255, 62, 82, 138)
+                                            .withOpacity(0.5),
+                                      ),
                                     ),
-                                    const SizedBox(width: 5),
-                                    const Text("Türkçe"),
-                                  ],
-                                )),
-                            const SizedBox(height: 10),
-                            ElevatedButton(
-                                onPressed: () {
-                                  setState(() {
-                                    context.setLocale(const Locale("en"));
-                                  });
-                                },
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Image.asset(
-                                      "assets/images/gb.png",
-                                      scale: 3,
+                                    onPressed: () {
+                                      setState(() {
+                                        context.setLocale(const Locale("tr"));
+                                      });
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Image.asset(
+                                          "assets/images/tr.png",
+                                          scale: 3,
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.all(5.0),
+                                          child: Text("TR"),
+                                        ),
+                                      ],
+                                    )),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(2.0),
+                                child: ElevatedButton(
+                                    style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all(
+                                        const Color.fromARGB(255, 62, 82, 138)
+                                            .withOpacity(0.5),
+                                      ),
                                     ),
-                                    const SizedBox(width: 5),
-                                    const Text("English"),
-                                  ],
-                                ))
-                          ],
+                                    onPressed: () {
+                                      setState(() {
+                                        context.setLocale(const Locale("en"));
+                                      });
+                                    },
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        Image.asset(
+                                          "assets/images/gb.png",
+                                          scale: 3,
+                                        ),
+                                        const Padding(
+                                          padding: EdgeInsets.all(5.0),
+                                          child: Text("EN"),
+                                        ),
+                                      ],
+                                    )),
+                              )
+                            ],
+                          ),
                         ),
                       ],
                     ),
                     const SizedBox(height: kDefaultPadding * 3),
                     Text(
                       "Hello Dear Guest, I am".tr(),
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5!
-                          .copyWith(color: Colors.white),
+                      style: Theme.of(context).textTheme.headline5!.copyWith(
+                          color: Colors.white,
+                          fontSize:
+                              context.locale == const Locale("tr") ? 20 : 25),
                     ),
                     const SizedBox(height: kDefaultPadding * 3),
                     Container(
@@ -162,45 +188,66 @@ class _GlassContainerState extends State<GlassContainer> {
                             .copyWith(color: Colors.white),
                       ),
                       Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  context.setLocale(const Locale("tr"));
-                                });
-                              },
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Image.asset(
-                                    "assets/images/tr.png",
-                                    scale: 3,
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: ElevatedButton(
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                    const Color.fromARGB(255, 62, 82, 138)
+                                        .withOpacity(0.5),
                                   ),
-                                  const SizedBox(width: 5),
-                                  const Text("Türkçe"),
-                                ],
-                              )),
-                          const SizedBox(height: 10),
-                          ElevatedButton(
-                              onPressed: () {
-                                setState(() {
-                                  context.setLocale(const Locale("en"));
-                                });
-                              },
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Image.asset(
-                                    "assets/images/gb.png",
-                                    scale: 3,
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    context.setLocale(const Locale("tr"));
+                                  });
+                                },
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/tr.png",
+                                      scale: 3,
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.all(5.0),
+                                      child: Text("TR"),
+                                    ),
+                                  ],
+                                )),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: ElevatedButton(
+                                style: ButtonStyle(
+                                  backgroundColor: MaterialStateProperty.all(
+                                    const Color.fromARGB(255, 62, 82, 138)
+                                        .withOpacity(0.5),
                                   ),
-                                  const SizedBox(width: 5),
-                                  const Text("English"),
-                                ],
-                              ))
+                                ),
+                                onPressed: () {
+                                  setState(() {
+                                    context.setLocale(const Locale("en"));
+                                  });
+                                },
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Image.asset(
+                                      "assets/images/gb.png",
+                                      scale: 3,
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.all(5.0),
+                                      child: Text("EN"),
+                                    ),
+                                  ],
+                                )),
+                          )
                         ],
                       )
                     ],

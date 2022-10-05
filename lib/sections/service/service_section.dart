@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/constants.dart';
 import 'package:portfolio_web/models/service_model.dart';
@@ -19,10 +20,14 @@ class ServiceSection extends StatelessWidget {
             return Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SectionTitle(
-                  title: "My Strong Arenas",
-                  subTitle: "Service Offerings",
-                  color: Color(0xFFFF0000),
+                SectionTitle(
+                  title: context.locale == const Locale("en")
+                      ? "My Strong Arenas"
+                      : "İyi Olduğum Alanlar ",
+                  subTitle: context.locale == const Locale("en")
+                      ? "Service Offerings"
+                      : "Sunduğum Hizmetler ",
+                  color: const Color(0xFFFF0000),
                 ),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -42,10 +47,14 @@ class ServiceSection extends StatelessWidget {
 
           return Column(
             children: [
-              const SectionTitle(
-                title: "My Strong Arenas",
-                subTitle: "Service Offerings",
-                color: Color(0xFFFF0000),
+              SectionTitle(
+                title: context.locale == const Locale("en")
+                    ? "My Strong Arenas"
+                    : "İyi Olduğum Alanlar ",
+                subTitle: context.locale == const Locale("en")
+                    ? "Service Offerings"
+                    : "Sunduğum Hizmetler ",
+                color: const Color(0xFFFF0000),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:portfolio_web/constants.dart';
@@ -8,9 +9,14 @@ import 'components/about_section_text.dart';
 import 'components/about_text.dart';
 import 'components/experience_card.dart';
 
-class AboutSection extends StatelessWidget {
+class AboutSection extends StatefulWidget {
   const AboutSection({super.key});
 
+  @override
+  State<AboutSection> createState() => _AboutSectionState();
+}
+
+class _AboutSectionState extends State<AboutSection> {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -22,20 +28,24 @@ class AboutSection extends StatelessWidget {
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: const [
-                  AboutText(),
+                children: [
+                  const AboutText(),
                   Expanded(
                     child: AboutSectionText(
-                        text:
-                            "   Hi, I am Resul. I was born  5th of march, 1998 in city of Turkey which is Şanlıurfa. I completed my high school degree where in Science High School at same city. Then, I studied English Language for one year in Preparation School of Foreign Languages. I continue to my education in Yalova University as a 4th year Computer Engineering student."),
+                      text: context.locale == const Locale("en")
+                          ? "   Hi, I am Resul. I was born  5th of march, 1998 in city of Turkey which is Şanlıurfa. I completed my high school degree where in Science High School at same city. Then, I studied English Language for one year in Preparation School of Foreign Languages. I continue to my education in Yalova University as a 4th year Computer Engineering student."
+                          : "   Merhaba ben Resul. 5 Mart 1998 Şanlıurfa doğumluyum. Lise eğitimimi aynı şehirde, Fen Lisesi'nde tamamladım. Daha sonra Hazırlık Okulu'nda bir yıl İngilizce eğitimi aldım. Yalova Üniversitesi Bilgisayar Mühendisliği 4. Sınıf öğrencisi olarak eğitimime devam etmekteyim.",
+                    ),
                   ),
-                  ExperienceCard(
+                  const ExperienceCard(
                     experienceInYears: "01",
                   ),
                   Expanded(
                     child: AboutSectionText(
-                        text:
-                            "   My hobbies are reading, walking, going to the movies and playing video games (fan of GTA). Besides my hobbies, I do frontend and backend developments in software. I also develop beginner level games with Unity."),
+                      text: context.locale == const Locale("en")
+                          ? "   My hobbies are reading, walking, going to the movies and playing video games (fan of GTA). Besides my hobbies, I do frontend and backend developments in software. I also develop beginner level games with Unity."
+                          : "   Hobilerim okumak, yürümek, sinemaya gitmek ve bilgisayar oyunları oynamak (GTA hayranıyımdır). Hobilerimin yanı sıra yazılımda frontend ve backend geliştirmeleri yapıyorum. Unity ile başlangıç seviyesinde oyunlar da geliştiriyorum.",
+                    ),
                   )
                 ],
               ),
@@ -49,7 +59,9 @@ class AboutSection extends StatelessWidget {
                           'https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/');
                     },
                     imagePath: "assets/images/hand.png",
-                    buttonText: "Hire Me",
+                    buttonText: context.locale == const Locale("en")
+                        ? "Hire Me"
+                        : "Benimle Çalışın",
                   ),
                   const SizedBox(
                     width: kDefaultPadding * 1.5,
@@ -60,7 +72,9 @@ class AboutSection extends StatelessWidget {
                           'https://drive.google.com/file/d/1bc7O-QLR8Ue3gw692QXBDMFW5l8NxMzP/view?usp=sharing');
                     },
                     imagePath: "assets/images/download.png",
-                    buttonText: "Download CV",
+                    buttonText: context.locale == const Locale("en")
+                        ? "Download CV"
+                        : "CV' yi indir",
                   ),
                 ],
               )
@@ -76,20 +90,24 @@ class AboutSection extends StatelessWidget {
           child: Column(
             children: [
               const AboutText(),
-              const Padding(
-                padding: EdgeInsets.all(50),
+              Padding(
+                padding: const EdgeInsets.all(50),
                 child: AboutSectionText(
-                    text:
-                        "   Hi, I am Resul. I was born  5th of march, 1998 in city of Turkey which is Şanlıurfa. I completed my high school degree where in Science High School at same city. Then, I studied English Language for one year in Preparation School of Foreign Languages. I continue to my education in Yalova University as a 4th year Computer Engineering student."),
+                  text: context.locale == const Locale("en")
+                      ? "   Hi, I am Resul. I was born  5th of march, 1998 in city of Turkey which is Şanlıurfa. I completed my high school degree where in Science High School at same city. Then, I studied English Language for one year in Preparation School of Foreign Languages. I continue to my education in Yalova University as a 4th year Computer Engineering student."
+                      : "   Merhaba ben Resul. 5 Mart 1998 Şanlıurfa doğumluyum. Lise eğitimimi aynı şehirde, Fen Lisesi'nde tamamladım. Daha sonra Hazırlık Okulu'nda bir yıl İngilizce eğitimi aldım. Yalova Üniversitesi Bilgisayar Mühendisliği 4. Sınıf öğrencisi olarak eğitimime devam etmekteyim.",
+                ),
               ),
               const ExperienceCard(
                 experienceInYears: "01",
               ),
-              const Padding(
-                padding: EdgeInsets.all(50),
+              Padding(
+                padding: const EdgeInsets.all(50),
                 child: AboutSectionText(
-                    text:
-                        "   My hobbies are reading, walking, going to the movies and playing video games (fan of GTA). Besides my hobbies, I do frontend and backend developments in software. I also develop beginner level games with Unity."),
+                  text: context.locale == const Locale("en")
+                      ? "   My hobbies are reading, walking, going to the movies and playing video games (fan of GTA). Besides my hobbies, I do frontend and backend developments in software. I also develop beginner level games with Unity."
+                      : "   Hobilerim okumak, yürümek, sinemaya gitmek ve bilgisayar oyunları oynamak (GTA hayranıyımdır). Hobilerimin yanı sıra yazılımda frontend ve backend geliştirmeleri yapıyorum. Unity ile başlangıç seviyesinde oyunlar da geliştiriyorum.",
+                ),
               ),
               const SizedBox(height: kDefaultPadding * 2),
               CustomOutlinedButton(
@@ -98,7 +116,9 @@ class AboutSection extends StatelessWidget {
                       'https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/');
                 },
                 imagePath: "assets/images/hand.png",
-                buttonText: "Hire Me",
+                buttonText: context.locale == const Locale("en")
+                    ? "Hire Me"
+                    : "Benimle Çalışın",
               ),
               const SizedBox(
                 height: kDefaultPadding * 1.5,
@@ -109,7 +129,9 @@ class AboutSection extends StatelessWidget {
                       'https://drive.google.com/file/d/1bc7O-QLR8Ue3gw692QXBDMFW5l8NxMzP/view?usp=sharing');
                 },
                 imagePath: "assets/images/download.png",
-                buttonText: "Download CV",
+                buttonText: context.locale == const Locale("en")
+                    ? "Download CV"
+                    : "CV' yi indir",
               )
             ],
           ),

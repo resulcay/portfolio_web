@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/components/section_title.dart';
 import 'package:portfolio_web/constants.dart';
@@ -31,10 +32,14 @@ class _RecentWorkSectionState extends State<RecentWorkSection> {
           ),
           child: Column(
             children: [
-              const SectionTitle(
-                title: "My Strong Arenas",
-                subTitle: "Recent Works",
-                color: Color(0xFFFFB100),
+              SectionTitle(
+                title: context.locale == const Locale("en")
+                    ? "My Strong Arenas"
+                    : "İyi Olduğum Alanlar",
+                subTitle: context.locale == const Locale("en")
+                    ? "Recent Works"
+                    : "Son Çalışmalar",
+                color: const Color(0xFFFFB100),
               ),
               const SizedBox(height: kDefaultPadding * 1.5),
               SizedBox(
@@ -98,10 +103,14 @@ class _RecentWorkSectionState extends State<RecentWorkSection> {
               offset: const Offset(0, -80),
               child: const HireMeCard(),
             ),
-            const SectionTitle(
-              title: "My Strong Arenas",
-              subTitle: "Recent Works",
-              color: Color(0xFFFFB100),
+            SectionTitle(
+              title: context.locale == const Locale("en")
+                  ? "My Strong Arenas"
+                  : "İyi Olduğum Alanlar",
+              subTitle: context.locale == const Locale("en")
+                  ? "Recent Works"
+                  : "Son Çalışmalar",
+              color: const Color(0xFFFFB100),
             ),
             const SizedBox(height: kDefaultPadding * 1.5),
             SizedBox(

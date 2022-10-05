@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -57,7 +58,9 @@ class _ServiceCardState extends State<ServiceCard> {
                 ),
                 const SizedBox(height: kDefaultPadding),
                 Text(
-                  services[widget.index].title,
+                  context.locale == const Locale("en")
+                      ? services[widget.index].title
+                      : servicesTr[widget.index].title,
                   style: const TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.w400,
@@ -116,7 +119,9 @@ class _ServiceCardState extends State<ServiceCard> {
               ),
               const SizedBox(height: kDefaultPadding),
               Text(
-                services[widget.index].title,
+                context.locale == const Locale("en")
+                    ? services[widget.index].title
+                    : servicesTr[widget.index].title,
                 style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w400,

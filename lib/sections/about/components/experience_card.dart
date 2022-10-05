@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -65,9 +66,11 @@ class ExperienceCard extends StatelessWidget {
               ],
             ),
             const SizedBox(height: kDefaultPadding / 2),
-            const Text(
-              "Years of Experience",
-              style: TextStyle(
+            Text(
+              context.locale == const Locale("tr")
+                  ? "Yıllık Deneyim"
+                  : "Years of Experience",
+              style: const TextStyle(
                 color: Color(0xFFA600FF),
               ),
             )

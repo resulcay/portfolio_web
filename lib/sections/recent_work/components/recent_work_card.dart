@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -44,19 +45,26 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(recentWorks[widget.index].category.toUpperCase()),
+                      Text(context.locale == const Locale("en")
+                          ? recentWorks[widget.index].category.toUpperCase()
+                          : recentWorksTr[widget.index].category.toUpperCase()),
                       const SizedBox(height: kDefaultPadding / 2),
                       Text(
-                        recentWorks[widget.index].title,
+                        context.locale == const Locale("en")
+                            ? recentWorks[widget.index].title
+                            : recentWorksTr[widget.index].title,
                         style: Theme.of(context)
                             .textTheme
                             .headline5!
                             .copyWith(height: 1.5),
                       ),
                       const SizedBox(height: kDefaultPadding),
-                      const Text(
-                        "View details",
-                        style: TextStyle(decoration: TextDecoration.underline),
+                      Text(
+                        context.locale == const Locale("en")
+                            ? "View details"
+                            : "Detayları Görüntüle",
+                        style: const TextStyle(
+                            decoration: TextDecoration.underline),
                       )
                     ],
                   ),
@@ -95,10 +103,14 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(recentWorks[widget.index].category.toUpperCase()),
+                    Text(context.locale == const Locale("en")
+                        ? recentWorks[widget.index].category.toUpperCase()
+                        : recentWorksTr[widget.index].category.toUpperCase()),
                     const SizedBox(height: kDefaultPadding / 2),
                     Text(
-                      recentWorks[widget.index].title,
+                      context.locale == const Locale("en")
+                          ? recentWorks[widget.index].title
+                          : recentWorksTr[widget.index].title,
                       style: Theme.of(context)
                           .textTheme
                           .headline5!

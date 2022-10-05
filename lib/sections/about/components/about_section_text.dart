@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
 
-class AboutSectionText extends StatelessWidget {
+class AboutSectionText extends StatefulWidget {
   const AboutSectionText({
     Key? key,
     required this.text,
@@ -11,12 +11,17 @@ class AboutSectionText extends StatelessWidget {
   final String text;
 
   @override
+  State<AboutSectionText> createState() => _AboutSectionTextState();
+}
+
+class _AboutSectionTextState extends State<AboutSectionText> {
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
         child: Text(
-          text,
+          widget.text,
           style: const TextStyle(
             fontWeight: FontWeight.w200,
             color: kTextColor,

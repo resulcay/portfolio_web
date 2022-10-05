@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../constants.dart';
@@ -13,7 +14,9 @@ class AboutText extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "About \nMy Story",
+          context.locale == const Locale("en")
+              ? "About \nMy Story"
+              : "Kısaca \nHakkımda",
           style: Theme.of(context)
               .textTheme
               .headline2!

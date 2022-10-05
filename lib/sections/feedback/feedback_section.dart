@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/components/section_title.dart';
 import 'package:portfolio_web/constants.dart';
@@ -17,10 +18,14 @@ class FeedbackSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: kDefaultPadding * 2.5),
           child: Column(
             children: [
-              const SectionTitle(
-                title: "Client's testimonials that inspired me a lot",
-                subTitle: "Feedback Received",
-                color: Color(0xFF00B1FF),
+              SectionTitle(
+                title: context.locale == const Locale("en")
+                    ? "Testimonials that inspired me a lot"
+                    : "Bana en çok ilham veren referanslar",
+                subTitle: context.locale == const Locale("en")
+                    ? "Feedback Received"
+                    : "Alınan Geridönütler",
+                color: const Color(0xFF00B1FF),
               ),
               const SizedBox(height: kDefaultPadding),
               Column(
@@ -57,10 +62,15 @@ class FeedbackSection extends StatelessWidget {
         constraints: const BoxConstraints(maxWidth: 1110),
         child: Column(
           children: [
-            const SectionTitle(
-                title: "Client's testimonials that inspired me a lot",
-                subTitle: "Feedback Received",
-                color: Color(0xFF00B1FF)),
+            SectionTitle(
+              title: context.locale == const Locale("en")
+                  ? "Testimonials that inspired me a lot"
+                  : "Bana en çok ilham veren referanslar",
+              subTitle: context.locale == const Locale("en")
+                  ? "Feedback Received"
+                  : "Alınan Geridönütler",
+              color: const Color(0xFF00B1FF),
+            ),
             const SizedBox(height: kDefaultPadding),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

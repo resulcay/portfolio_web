@@ -40,3 +40,30 @@ List<RecentWork> recentWorks = [
     image: "assets/images/4.png",
   ),
 ];
+
+List<RecentWork> recentWorksTr = [
+  RecentWork(
+    id: 1,
+    title: "Yeni doğmuş bebekler için isim bulan bir uygulama",
+    category: "Flutter ile",
+    image: "assets/images/1.png",
+  ),
+  RecentWork(
+    id: 2,
+    title: "İstek üzerine yapılmış bir fitness uygulaması",
+    category: "Flutter ile",
+    image: "assets/images/2.png",
+  ),
+  RecentWork(
+    id: 3,
+    title: "Prototip bir bitki uygulaması",
+    category: "Flutter ile",
+    image: "assets/images/3.png",
+  ),
+  RecentWork(
+    id: 4,
+    title: "Animasyonlu bir araç kontrol uygulaması",
+    category: "Flutter ile",
+    image: "assets/images/4.png",
+  ),
+];

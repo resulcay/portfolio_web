@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:mailto/mailto.dart';
 import 'package:portfolio_web/components/section_title.dart';
@@ -30,14 +31,18 @@ class ContactSection extends StatelessWidget {
         ),
       ),
       child: Column(
-        children: const [
-          SizedBox(height: kDefaultPadding * 2.5),
+        children: [
+          const SizedBox(height: kDefaultPadding * 2.5),
           SectionTitle(
-            title: "For Project inquiry and Information",
-            subTitle: "Contact Me",
-            color: Color(0xFF07E24A),
+            title: context.locale == const Locale("en")
+                ? "For Project inquiry and Information"
+                : "Proje sorgulama ve Bilgilendirme",
+            subTitle: context.locale == const Locale("en")
+                ? "Contact Me"
+                : "Benimle İletişime Geç",
+            color: const Color(0xFF07E24A),
           ),
-          ContactBox()
+          const ContactBox()
         ],
       ),
     );
@@ -74,7 +79,10 @@ class ContactBox extends StatelessWidget {
                   color: const Color(0xFFD9FFFC),
                   function: () {
                     _launchUrl(
-                        "https://wa.me/905422207170/?text=Hi%2C%20Resul.%20I%20am%20interested%20in%20one%20of%20your%20services.");
+                      context.locale == const Locale("en")
+                          ? "https://wa.me/905422207170/?text=Hi%2C%20Resul.%20I%20am%20interested%20in%20one%20of%20your%20services."
+                          : "https://wa.me/905422207170/?text=Merhaba%20Resul%2C%20Hizmetlerinizden%20faydalanmak%20istiyorum.",
+                    );
                   },
                 ),
                 const SizedBox(height: kDefaultPadding),
@@ -124,7 +132,10 @@ class ContactBox extends StatelessWidget {
                     color: const Color(0xFFD9FFFC),
                     function: () {
                       _launchUrl(
-                          "https://wa.me/905422207170/?text=Hi%2C%20Resul.%20I%20am%20interested%20in%20one%20of%20your%20services.");
+                        context.locale == const Locale("en")
+                            ? "https://wa.me/905422207170/?text=Hi%2C%20Resul.%20I%20am%20interested%20in%20one%20of%20your%20services."
+                            : "https://wa.me/905422207170/?text=Merhaba%20Resul%2C%20Hizmetlerinizden%20faydalanmak%20istiyorum.",
+                      );
                     },
                   ),
                   SocialCard(
@@ -173,9 +184,13 @@ class ContactForm extends StatelessWidget {
             child: TextField(
               controller: clientNameTextController,
               onChanged: (value) {},
-              decoration: const InputDecoration(
-                labelText: "Your Name",
-                hintText: "Enter Your Name",
+              decoration: InputDecoration(
+                labelText: context.locale == const Locale("en")
+                    ? "Your Name"
+                    : "Adınız",
+                hintText: context.locale == const Locale("en")
+                    ? "Enter Your Name"
+                    : "Adınızı Giriniz",
               ),
             ),
           ),
@@ -184,9 +199,13 @@ class ContactForm extends StatelessWidget {
             child: TextField(
               controller: clientMailTextController,
               onChanged: (value) {},
-              decoration: const InputDecoration(
-                labelText: "Your Email",
-                hintText: "Enter Your Email Address",
+              decoration: InputDecoration(
+                labelText: context.locale == const Locale("en")
+                    ? "Your Email"
+                    : "Mailiniz",
+                hintText: context.locale == const Locale("en")
+                    ? "Enter Your Email Address"
+                    : "Mailinizi Giriniz",
               ),
             ),
           ),
@@ -195,9 +214,13 @@ class ContactForm extends StatelessWidget {
             child: TextField(
               controller: projectTypeTextController,
               onChanged: (value) {},
-              decoration: const InputDecoration(
-                labelText: "Project Type",
-                hintText: "Enter Your Project Type",
+              decoration: InputDecoration(
+                labelText: context.locale == const Locale("en")
+                    ? "Project Type"
+                    : "Proje Türü",
+                hintText: context.locale == const Locale("en")
+                    ? "Enter Your Project Type"
+                    : "Proje Türünüzü Giriniz",
               ),
             ),
           ),
@@ -206,9 +229,13 @@ class ContactForm extends StatelessWidget {
             child: TextField(
               controller: projectBudgetTextController,
               onChanged: (value) {},
-              decoration: const InputDecoration(
-                labelText: "Project Budget",
-                hintText: "Enter Your Project Budget",
+              decoration: InputDecoration(
+                labelText: context.locale == const Locale("en")
+                    ? "Project Budget"
+                    : "Proje Bütçesi",
+                hintText: context.locale == const Locale("en")
+                    ? "Enter Your Project Budget"
+                    : "Proje Bütçenizi Giriniz",
               ),
             ),
           ),
@@ -216,9 +243,13 @@ class ContactForm extends StatelessWidget {
             controller: clientDescriptionTextController,
             maxLines: 7,
             onChanged: (value) {},
-            decoration: const InputDecoration(
-              labelText: "Your Description",
-              hintText: "Enter Your Description",
+            decoration: InputDecoration(
+              labelText: context.locale == const Locale("en")
+                  ? "Your Description"
+                  : "Mesajınız",
+              hintText: context.locale == const Locale("en")
+                  ? "Enter Your Description"
+                  : "Mesajınızı Giriniz",
             ),
           ),
           const SizedBox(height: kDefaultPadding * 2),
@@ -241,7 +272,9 @@ class ContactForm extends StatelessWidget {
                   projectTypeTextController.text = "";
                 },
                 imagePath: "assets/images/contact_icon.png",
-                buttonText: "Contact Me",
+                buttonText: context.locale == const Locale("en")
+                    ? "Contact Me"
+                    : "Benimle iletişime Geç",
               ),
             ),
           )
@@ -262,8 +295,8 @@ Future<void> _launchUrl(String url) async {
 launchMailto() async {
   final mailtoLink = Mailto(
     to: ['resulcayop@gmail.com'],
-    subject: 'Development Service Request',
-    body: 'Hi Resul, I am interested in one of your services.',
+    subject: "Development Service Request".tr(),
+    body: "Hi Resul, I am interested in one of your services.".tr(),
   );
 
   await _launchUrl('$mailtoLink');

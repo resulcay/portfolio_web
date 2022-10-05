@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -35,12 +36,19 @@ class HireMeCard extends StatelessWidget {
           Expanded(
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              Text("Starting New Project?",
-                  style: TextStyle(fontSize: 42, fontWeight: FontWeight.bold)),
-              SizedBox(height: kDefaultPadding / 2),
-              Text("Get an estimate for the new project",
-                  style: TextStyle(fontWeight: FontWeight.w200))
+            children: [
+              Text(
+                  context.locale == const Locale("en")
+                      ? "Starting New Project?"
+                      : "Yeni Bir Projeye mi Başlıyorsunuz?",
+                  style: const TextStyle(
+                      fontSize: 42, fontWeight: FontWeight.bold)),
+              const SizedBox(height: kDefaultPadding / 2),
+              Text(
+                  context.locale == const Locale("en")
+                      ? "Get an estimate for the new project"
+                      : "Yeni projeniz için fiyat alın",
+                  style: const TextStyle(fontWeight: FontWeight.w200))
             ],
           )),
           CustomOutlinedButton(
@@ -48,7 +56,9 @@ class HireMeCard extends StatelessWidget {
               _launchUrl('https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/');
             },
             imagePath: "assets/images/hand.png",
-            buttonText: "Hire Me",
+            buttonText: context.locale == const Locale("en")
+                ? "Hire Me"
+                : "Benimle Çalışın",
           )
         ],
       ),
