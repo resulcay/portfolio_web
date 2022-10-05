@@ -19,6 +19,14 @@ List<String> menuItems = [
   "Testimonial",
   "Contact"
 ];
+List<String> menuItemsTr = [
+  "Anasayfa",
+  "Hakkımda",
+  "Hizmetler",
+  "Portföy",
+  "Referanslar",
+  "İletişim"
+];
 
 class _MenuState extends State<Menu> {
   int selectedIndex = 0;
@@ -87,7 +95,9 @@ class _MenuState extends State<Menu> {
           alignment: Alignment.center,
           children: [
             Text(
-              menuItems[index].tr(),
+              context.locale == const Locale("en")
+                  ? menuItems[index]
+                  : menuItemsTr[index],
               style: const TextStyle(
                 fontSize: 20,
                 color: kTextColor,

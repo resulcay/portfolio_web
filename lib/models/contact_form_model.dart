@@ -1,6 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first, use_build_context_synchronously
 import 'dart:convert';
 
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -57,18 +58,21 @@ class ContactFormModel extends ChangeNotifier {
         isLoading = false;
         notifyListeners();
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             backgroundColor: Colors.green,
-            content: Text("Successfully Sent"),
+            content: Text(context.locale == const Locale("en")
+                ? "Successfully Sent"
+                : "Başarıyla Yollandı"),
           ),
         );
       }
       if (response.statusCode == 400) {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
+          SnackBar(
             backgroundColor: Colors.red,
-            content: Text(
-                "Sending Failed due to an unknown reason. Please retry again later."),
+            content: Text(context.locale == const Locale("en")
+                ? "Sending Failed due to an unknown reason. Please retry again later."
+                : "Formunuz bilinmeyen bir hata yüzünden gönderilemedi. Lütfen daha sonra tekrar deneyiniz."),
           ),
         );
       }

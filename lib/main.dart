@@ -34,7 +34,9 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       debugShowCheckedModeBanner: false,
-      title: "Resul's Portfolio Website".tr(),
+      title: context.locale == const Locale("en")
+          ? "Resul's Portfolio Website"
+          : "Portföy Sitem",
       theme: ThemeData(
           inputDecorationTheme: kDefaultInputDecorationTheme,
           visualDensity: VisualDensity.adaptivePlatformDensity,

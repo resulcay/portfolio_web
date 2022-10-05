@@ -117,9 +117,12 @@ class _RecentWorkCardState extends State<RecentWorkCard> {
                           .copyWith(height: 1.5),
                     ),
                     const SizedBox(height: kDefaultPadding),
-                    const Text(
-                      "View details",
-                      style: TextStyle(decoration: TextDecoration.underline),
+                    Text(
+                      context.locale == const Locale("en")
+                          ? "View details"
+                          : "Detayları Görüntüle",
+                      style:
+                          const TextStyle(decoration: TextDecoration.underline),
                     )
                   ],
                 ),
