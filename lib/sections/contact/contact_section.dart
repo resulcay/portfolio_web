@@ -274,7 +274,7 @@ class ContactForm extends StatelessWidget {
                 imagePath: "assets/images/contact_icon.png",
                 buttonText: context.locale == const Locale("en")
                     ? "Contact Me"
-                    : "Benimle iletişime Geç",
+                    : "Benimle İletişime Geç",
               ),
             ),
           )
