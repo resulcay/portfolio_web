@@ -1,6 +1,6 @@
 # portfolio_web
 
-public site link : https://resulcay.web.app/
+website link : https://resulcay.web.app/
 
 ---Desktop Size View ScreenShots---
 
