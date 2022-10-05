@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/models/contact_form_model.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +41,11 @@ class CustomOutlinedButton extends StatelessWidget {
                   )
                 : const CircularProgressIndicator(),
             const SizedBox(width: kDefaultPadding),
-            Text(localIsLoading == false ? buttonText : "Sending")
+            Text(localIsLoading == false
+                ? buttonText
+                : context.locale == const Locale("en")
+                    ? "Sending"
+                    : "Gönderiliyor")
           ],
         ),
       ),
