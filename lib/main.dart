@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       locale: context.locale,
       debugShowCheckedModeBanner: false,
       title: context.locale == const Locale("en")
-          ? "Resul's Portfolio Website"
+          ? "My Portfolio Website"
           : "Portföy Sitem",
       theme: ThemeData(
           inputDecorationTheme: kDefaultInputDecorationTheme,
