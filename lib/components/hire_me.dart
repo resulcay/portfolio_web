@@ -53,7 +53,7 @@ class HireMeCard extends StatelessWidget {
           )),
           CustomOutlinedButton(
             function: () {
-              _launchUrl('https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/');
+              _launchUrl('https://https://www.linkedin.com/in/resulcay/');
             },
             imagePath: "assets/images/hand.png",
             buttonText: context.locale == const Locale("en")

@@ -56,7 +56,7 @@ class _AboutSectionState extends State<AboutSection> {
                   CustomOutlinedButton(
                     function: () {
                       _launchUrl(
-                          'https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/');
+                          'https://https://www.linkedin.com/in/resulcay/');
                     },
                     imagePath: "assets/images/hand.png",
                     buttonText: context.locale == const Locale("en")
@@ -69,7 +69,7 @@ class _AboutSectionState extends State<AboutSection> {
                   CustomOutlinedButton(
                     function: () {
                       _launchUrl(
-                          'https://drive.google.com/file/d/1bc7O-QLR8Ue3gw692QXBDMFW5l8NxMzP/view?usp=sharing');
+                          'https://drive.google.com/file/d/12kF50nS5F6-y8B1Y_wH6D5C7KkOB5dfL/view?usp=sharing');
                     },
                     imagePath: "assets/images/download.png",
                     buttonText: context.locale == const Locale("en")
@@ -112,8 +112,7 @@ class _AboutSectionState extends State<AboutSection> {
               const SizedBox(height: kDefaultPadding * 2),
               CustomOutlinedButton(
                 function: () {
-                  _launchUrl(
-                      'https://www.linkedin.com/in/resul-%C3%A7-6b14731a3/');
+                  _launchUrl('https://https://www.linkedin.com/in/resulcay/');
                 },
                 imagePath: "assets/images/hand.png",
                 buttonText: context.locale == const Locale("en")
@@ -126,7 +125,7 @@ class _AboutSectionState extends State<AboutSection> {
               CustomOutlinedButton(
                 function: () {
                   _launchUrl(
-                      'https://drive.google.com/file/d/1bc7O-QLR8Ue3gw692QXBDMFW5l8NxMzP/view?usp=sharing');
+                      'https://drive.google.com/file/d/12kF50nS5F6-y8B1Y_wH6D5C7KkOB5dfL/view?usp=sharing');
                 },
                 imagePath: "assets/images/download.png",
                 buttonText: context.locale == const Locale("en")
