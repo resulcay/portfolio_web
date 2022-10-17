@@ -100,7 +100,7 @@ class ContactBox extends StatelessWidget {
                   iconPath: "assets/images/linkedin.png",
                   color: const Color(0xFFE8F0F9),
                   function: () {
-                    _launchUrl("https://https://www.linkedin.com/in/resulcay/");
+                    _launchUrl("https://www.linkedin.com/in/resulcay/");
                   },
                 ),
                 const SizedBox(height: kDefaultPadding * 2),
@@ -151,7 +151,7 @@ class ContactBox extends StatelessWidget {
                     color: const Color(0xFFE8F0F9),
                     function: () {
                       _launchUrl(
-                          "https://https://www.linkedin.com/in/resulcay/");
+                          "https://www.linkedin.com/in/resulcay/");
                     },
                   ),
                 ],

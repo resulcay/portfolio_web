@@ -55,8 +55,7 @@ class _AboutSectionState extends State<AboutSection> {
                 children: [
                   CustomOutlinedButton(
                     function: () {
-                      _launchUrl(
-                          'https://https://www.linkedin.com/in/resulcay/');
+                      _launchUrl('https://www.linkedin.com/in/resulcay/');
                     },
                     imagePath: "assets/images/hand.png",
                     buttonText: context.locale == const Locale("en")
@@ -112,7 +111,7 @@ class _AboutSectionState extends State<AboutSection> {
               const SizedBox(height: kDefaultPadding * 2),
               CustomOutlinedButton(
                 function: () {
-                  _launchUrl('https://https://www.linkedin.com/in/resulcay/');
+                  _launchUrl('https://www.linkedin.com/in/resulcay/');
                 },
                 imagePath: "assets/images/hand.png",
                 buttonText: context.locale == const Locale("en")
