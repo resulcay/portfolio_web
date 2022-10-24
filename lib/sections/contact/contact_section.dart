@@ -146,7 +146,7 @@ class ContactBox extends StatelessWidget {
                     },
                   ),
                   SocialCard(
-                    userName: "       Resul Çay       ",
+                    userName: "       resulcay       ",
                     iconPath: "assets/images/linkedin.png",
                     color: const Color(0xFFE8F0F9),
                     function: () {
