@@ -37,9 +37,7 @@ class _GlassContainerState extends State<GlassContainer> {
                 padding:
                     const EdgeInsets.symmetric(horizontal: kDefaultPadding * 2),
                 color: Colors.white.withOpacity(0),
-                constraints: const BoxConstraints(
-                  maxWidth: 1110,
-                ),
+                constraints: const BoxConstraints(maxWidth: 1110),
                 width: double.infinity,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -167,10 +165,7 @@ class _GlassContainerState extends State<GlassContainer> {
               padding:
                   const EdgeInsets.symmetric(horizontal: kDefaultPadding * 2),
               color: Colors.white.withOpacity(0),
-              constraints: BoxConstraints(
-                maxWidth: 1110,
-                maxHeight: context.height * 0.8,
-              ),
+              constraints: const BoxConstraints(maxWidth: 1110),
               width: double.infinity,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
