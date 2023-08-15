@@ -31,7 +31,7 @@ class ContactFormModel extends ChangeNotifier {
       BuildContext context) async {
     isLoading = true;
     notifyListeners();
-    const serviceId = 'service_dx9gnan';
+    const serviceId = 'service_2uz9i6c';
     const templateId = 'template_one6hqt';
     const userId = 'zJ5ApQSA5f7OfmuyJ';
 
