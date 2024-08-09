@@ -9,14 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          curl -s https://raw.githubusercontent.com/leoafarias/fvm/master/install.sh | bash &&
-          export PATH="$PATH:$HOME/.pub-cache/bin" &&
-          fvm install 3.10.5 && 
-          fvm use 3.10.5 &&
-          fvm flutter channel stable &&
-          fvm flutter pub get &&
-          fvm flutter config --enable-web &&
-          fvm flutter build web --release
+          wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.10.5-stable.tar.xz &&
+          tar xf flutter_linux_3.10.5-stable.tar.xz &&
+          export PATH="$PATH:$PWD/flutter/bin" &&
+          flutter channel stable &&
+          flutter pub get &&
+          flutter config --enable-web &&
+          flutter build web --release
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
