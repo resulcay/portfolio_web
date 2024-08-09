@@ -9,9 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: >-
-          sudo snap install flutter --classic && flutter channel stable &&
-          flutter pub get && flutter config --enable-web && flutter build web
+      - run: |
+          sudo snap install fvm --classic &&
+          fvm install 3.10.5 &&
+          fvm use 3.10.5 &&
+          fvm flutter channel stable &&
+          fvm flutter pub get &&
+          fvm flutter config --enable-web &&
+          fvm flutter build web
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
