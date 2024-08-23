@@ -38,7 +38,7 @@ class _AboutSectionState extends State<AboutSection> {
                     ),
                   ),
                   const ExperienceCard(
-                    experienceInYears: "02",
+                    experienceInYears: "2",
                   ),
                   Expanded(
                     child: AboutSectionText(
