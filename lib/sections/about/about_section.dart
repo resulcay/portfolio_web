@@ -68,7 +68,7 @@ class _AboutSectionState extends State<AboutSection> {
                   CustomOutlinedButton(
                     function: () {
                       _launchUrl(
-                          'https://drive.google.com/file/d/1aN1uTfJ3_1a5YlEq23BHfACQ4317P7lk/view?usp=sharing');
+                          'https://drive.google.com/file/d/1gBsD4xUL1rAkKh5aj85fXXliJuWnv0KB/view?usp=sharing');
                     },
                     imagePath: "assets/images/download.png",
                     buttonText: context.locale == const Locale("en")
